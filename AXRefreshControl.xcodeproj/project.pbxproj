@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DCA1B20F1D9A171E0066AA4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B20E1D9A171E0066AA4A /* main.m */; };
+		DCA1B2121D9A171E0066AA4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2111D9A171E0066AA4A /* AppDelegate.m */; };
+		DCA1B2151D9A171E0066AA4A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2141D9A171E0066AA4A /* ViewController.m */; };
+		DCA1B2181D9A171E0066AA4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA1B2161D9A171E0066AA4A /* Main.storyboard */; };
+		DCA1B21A1D9A171E0066AA4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA1B2191D9A171E0066AA4A /* Assets.xcassets */; };
+		DCA1B21D1D9A171E0066AA4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA1B21B1D9A171E0066AA4A /* LaunchScreen.storyboard */; };
+		DCA1B2281D9A171E0066AA4A /* AXRefreshControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2271D9A171E0066AA4A /* AXRefreshControlTests.m */; };
+		DCA1B2331D9A171E0066AA4A /* AXRefreshControlUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2321D9A171E0066AA4A /* AXRefreshControlUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DCA1B2241D9A171E0066AA4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCA1B2021D9A171E0066AA4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCA1B2091D9A171E0066AA4A;
+			remoteInfo = AXRefreshControl;
+		};
+		DCA1B22F1D9A171E0066AA4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCA1B2021D9A171E0066AA4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCA1B2091D9A171E0066AA4A;
+			remoteInfo = AXRefreshControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DCA1B20A1D9A171E0066AA4A /* AXRefreshControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AXRefreshControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCA1B20E1D9A171E0066AA4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DCA1B2101D9A171E0066AA4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DCA1B2111D9A171E0066AA4A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DCA1B2131D9A171E0066AA4A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DCA1B2141D9A171E0066AA4A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DCA1B2171D9A171E0066AA4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DCA1B2191D9A171E0066AA4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DCA1B21C1D9A171E0066AA4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DCA1B21E1D9A171E0066AA4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCA1B2231D9A171E0066AA4A /* AXRefreshControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AXRefreshControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCA1B2271D9A171E0066AA4A /* AXRefreshControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AXRefreshControlTests.m; sourceTree = "<group>"; };
+		DCA1B2291D9A171E0066AA4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCA1B22E1D9A171E0066AA4A /* AXRefreshControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AXRefreshControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCA1B2321D9A171E0066AA4A /* AXRefreshControlUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AXRefreshControlUITests.m; sourceTree = "<group>"; };
+		DCA1B2341D9A171E0066AA4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCA1B2071D9A171E0066AA4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCA1B2201D9A171E0066AA4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCA1B22B1D9A171E0066AA4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCA1B2011D9A171E0066AA4A = {
+			isa = PBXGroup;
+			children = (
+				DCA1B20C1D9A171E0066AA4A /* AXRefreshControl */,
+				DCA1B2261D9A171E0066AA4A /* AXRefreshControlTests */,
+				DCA1B2311D9A171E0066AA4A /* AXRefreshControlUITests */,
+				DCA1B20B1D9A171E0066AA4A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCA1B20B1D9A171E0066AA4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCA1B20A1D9A171E0066AA4A /* AXRefreshControl.app */,
+				DCA1B2231D9A171E0066AA4A /* AXRefreshControlTests.xctest */,
+				DCA1B22E1D9A171E0066AA4A /* AXRefreshControlUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCA1B20C1D9A171E0066AA4A /* AXRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				DCA1B2101D9A171E0066AA4A /* AppDelegate.h */,
+				DCA1B2111D9A171E0066AA4A /* AppDelegate.m */,
+				DCA1B2131D9A171E0066AA4A /* ViewController.h */,
+				DCA1B2141D9A171E0066AA4A /* ViewController.m */,
+				DCA1B2161D9A171E0066AA4A /* Main.storyboard */,
+				DCA1B2191D9A171E0066AA4A /* Assets.xcassets */,
+				DCA1B21B1D9A171E0066AA4A /* LaunchScreen.storyboard */,
+				DCA1B21E1D9A171E0066AA4A /* Info.plist */,
+				DCA1B20D1D9A171E0066AA4A /* Supporting Files */,
+			);
+			path = AXRefreshControl;
+			sourceTree = "<group>";
+		};
+		DCA1B20D1D9A171E0066AA4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DCA1B20E1D9A171E0066AA4A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DCA1B2261D9A171E0066AA4A /* AXRefreshControlTests */ = {
+			isa = PBXGroup;
+			children = (
+				DCA1B2271D9A171E0066AA4A /* AXRefreshControlTests.m */,
+				DCA1B2291D9A171E0066AA4A /* Info.plist */,
+			);
+			path = AXRefreshControlTests;
+			sourceTree = "<group>";
+		};
+		DCA1B2311D9A171E0066AA4A /* AXRefreshControlUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DCA1B2321D9A171E0066AA4A /* AXRefreshControlUITests.m */,
+				DCA1B2341D9A171E0066AA4A /* Info.plist */,
+			);
+			path = AXRefreshControlUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCA1B2091D9A171E0066AA4A /* AXRefreshControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCA1B2371D9A171E0066AA4A /* Build configuration list for PBXNativeTarget "AXRefreshControl" */;
+			buildPhases = (
+				DCA1B2061D9A171E0066AA4A /* Sources */,
+				DCA1B2071D9A171E0066AA4A /* Frameworks */,
+				DCA1B2081D9A171E0066AA4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AXRefreshControl;
+			productName = AXRefreshControl;
+			productReference = DCA1B20A1D9A171E0066AA4A /* AXRefreshControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DCA1B2221D9A171E0066AA4A /* AXRefreshControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCA1B23A1D9A171E0066AA4A /* Build configuration list for PBXNativeTarget "AXRefreshControlTests" */;
+			buildPhases = (
+				DCA1B21F1D9A171E0066AA4A /* Sources */,
+				DCA1B2201D9A171E0066AA4A /* Frameworks */,
+				DCA1B2211D9A171E0066AA4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCA1B2251D9A171E0066AA4A /* PBXTargetDependency */,
+			);
+			name = AXRefreshControlTests;
+			productName = AXRefreshControlTests;
+			productReference = DCA1B2231D9A171E0066AA4A /* AXRefreshControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DCA1B22D1D9A171E0066AA4A /* AXRefreshControlUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCA1B23D1D9A171E0066AA4A /* Build configuration list for PBXNativeTarget "AXRefreshControlUITests" */;
+			buildPhases = (
+				DCA1B22A1D9A171E0066AA4A /* Sources */,
+				DCA1B22B1D9A171E0066AA4A /* Frameworks */,
+				DCA1B22C1D9A171E0066AA4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCA1B2301D9A171E0066AA4A /* PBXTargetDependency */,
+			);
+			name = AXRefreshControlUITests;
+			productName = AXRefreshControlUITests;
+			productReference = DCA1B22E1D9A171E0066AA4A /* AXRefreshControlUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCA1B2021D9A171E0066AA4A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = devedbox;
+				TargetAttributes = {
+					DCA1B2091D9A171E0066AA4A = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = TKA48YVS5T;
+						ProvisioningStyle = Automatic;
+					};
+					DCA1B2221D9A171E0066AA4A = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = TKA48YVS5T;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DCA1B2091D9A171E0066AA4A;
+					};
+					DCA1B22D1D9A171E0066AA4A = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = TKA48YVS5T;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DCA1B2091D9A171E0066AA4A;
+					};
+				};
+			};
+			buildConfigurationList = DCA1B2051D9A171E0066AA4A /* Build configuration list for PBXProject "AXRefreshControl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DCA1B2011D9A171E0066AA4A;
+			productRefGroup = DCA1B20B1D9A171E0066AA4A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCA1B2091D9A171E0066AA4A /* AXRefreshControl */,
+				DCA1B2221D9A171E0066AA4A /* AXRefreshControlTests */,
+				DCA1B22D1D9A171E0066AA4A /* AXRefreshControlUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCA1B2081D9A171E0066AA4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCA1B21D1D9A171E0066AA4A /* LaunchScreen.storyboard in Resources */,
+				DCA1B21A1D9A171E0066AA4A /* Assets.xcassets in Resources */,
+				DCA1B2181D9A171E0066AA4A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCA1B2211D9A171E0066AA4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCA1B22C1D9A171E0066AA4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCA1B2061D9A171E0066AA4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCA1B2151D9A171E0066AA4A /* ViewController.m in Sources */,
+				DCA1B2121D9A171E0066AA4A /* AppDelegate.m in Sources */,
+				DCA1B20F1D9A171E0066AA4A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCA1B21F1D9A171E0066AA4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCA1B2281D9A171E0066AA4A /* AXRefreshControlTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCA1B22A1D9A171E0066AA4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCA1B2331D9A171E0066AA4A /* AXRefreshControlUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DCA1B2251D9A171E0066AA4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCA1B2091D9A171E0066AA4A /* AXRefreshControl */;
+			targetProxy = DCA1B2241D9A171E0066AA4A /* PBXContainerItemProxy */;
+		};
+		DCA1B2301D9A171E0066AA4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCA1B2091D9A171E0066AA4A /* AXRefreshControl */;
+			targetProxy = DCA1B22F1D9A171E0066AA4A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DCA1B2161D9A171E0066AA4A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCA1B2171D9A171E0066AA4A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DCA1B21B1D9A171E0066AA4A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCA1B21C1D9A171E0066AA4A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DCA1B2351D9A171E0066AA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DCA1B2361D9A171E0066AA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DCA1B2381D9A171E0066AA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = TKA48YVS5T;
+				INFOPLIST_FILE = AXRefreshControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.devedbox.AXRefreshControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DCA1B2391D9A171E0066AA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = TKA48YVS5T;
+				INFOPLIST_FILE = AXRefreshControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.devedbox.AXRefreshControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DCA1B23B1D9A171E0066AA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = TKA48YVS5T;
+				INFOPLIST_FILE = AXRefreshControlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.devedbox.AXRefreshControlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AXRefreshControl.app/AXRefreshControl";
+			};
+			name = Debug;
+		};
+		DCA1B23C1D9A171E0066AA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = TKA48YVS5T;
+				INFOPLIST_FILE = AXRefreshControlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.devedbox.AXRefreshControlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AXRefreshControl.app/AXRefreshControl";
+			};
+			name = Release;
+		};
+		DCA1B23E1D9A171E0066AA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = TKA48YVS5T;
+				INFOPLIST_FILE = AXRefreshControlUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.devedbox.AXRefreshControlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AXRefreshControl;
+			};
+			name = Debug;
+		};
+		DCA1B23F1D9A171E0066AA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = TKA48YVS5T;
+				INFOPLIST_FILE = AXRefreshControlUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.devedbox.AXRefreshControlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AXRefreshControl;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCA1B2051D9A171E0066AA4A /* Build configuration list for PBXProject "AXRefreshControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCA1B2351D9A171E0066AA4A /* Debug */,
+				DCA1B2361D9A171E0066AA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCA1B2371D9A171E0066AA4A /* Build configuration list for PBXNativeTarget "AXRefreshControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCA1B2381D9A171E0066AA4A /* Debug */,
+				DCA1B2391D9A171E0066AA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DCA1B23A1D9A171E0066AA4A /* Build configuration list for PBXNativeTarget "AXRefreshControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCA1B23B1D9A171E0066AA4A /* Debug */,
+				DCA1B23C1D9A171E0066AA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DCA1B23D1D9A171E0066AA4A /* Build configuration list for PBXNativeTarget "AXRefreshControlUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCA1B23E1D9A171E0066AA4A /* Debug */,
+				DCA1B23F1D9A171E0066AA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCA1B2021D9A171E0066AA4A /* Project object */;
+}
