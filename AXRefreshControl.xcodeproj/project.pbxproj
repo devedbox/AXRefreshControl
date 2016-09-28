@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B490C9C91056A21062043691 /* Pods_AXRefreshControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962694F23F00D8218DE05C7D /* Pods_AXRefreshControl.framework */; };
+		DC7FD8DE1D9B53FB00C39C0C /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7FD8DD1D9B53FB00C39C0C /* ScrollViewController.m */; };
 		DCA1B20F1D9A171E0066AA4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B20E1D9A171E0066AA4A /* main.m */; };
 		DCA1B2121D9A171E0066AA4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2111D9A171E0066AA4A /* AppDelegate.m */; };
 		DCA1B2151D9A171E0066AA4A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2141D9A171E0066AA4A /* ViewController.m */; };
@@ -15,6 +17,8 @@
 		DCA1B21D1D9A171E0066AA4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA1B21B1D9A171E0066AA4A /* LaunchScreen.storyboard */; };
 		DCA1B2281D9A171E0066AA4A /* AXRefreshControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2271D9A171E0066AA4A /* AXRefreshControlTests.m */; };
 		DCA1B2331D9A171E0066AA4A /* AXRefreshControlUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2321D9A171E0066AA4A /* AXRefreshControlUITests.m */; };
+		DCA1B2421D9A17400066AA4A /* AXRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2411D9A17400066AA4A /* AXRefreshControl.m */; };
+		DCA1B2461D9A176E0066AA4A /* UIScrollView+Refreshable.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2451D9A176E0066AA4A /* UIScrollView+Refreshable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		102A2C5760A96B32C34363FF /* Pods-AXRefreshControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AXRefreshControl.release.xcconfig"; path = "Pods/Target Support Files/Pods-AXRefreshControl/Pods-AXRefreshControl.release.xcconfig"; sourceTree = "<group>"; };
+		962694F23F00D8218DE05C7D /* Pods_AXRefreshControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AXRefreshControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B70063EA2B428CE6175AD842 /* Pods-AXRefreshControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AXRefreshControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AXRefreshControl/Pods-AXRefreshControl.debug.xcconfig"; sourceTree = "<group>"; };
+		DC7FD8DC1D9B53FB00C39C0C /* ScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewController.h; sourceTree = "<group>"; };
+		DC7FD8DD1D9B53FB00C39C0C /* ScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewController.m; sourceTree = "<group>"; };
 		DCA1B20A1D9A171E0066AA4A /* AXRefreshControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AXRefreshControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA1B20E1D9A171E0066AA4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DCA1B2101D9A171E0066AA4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +60,11 @@
 		DCA1B22E1D9A171E0066AA4A /* AXRefreshControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AXRefreshControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA1B2321D9A171E0066AA4A /* AXRefreshControlUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AXRefreshControlUITests.m; sourceTree = "<group>"; };
 		DCA1B2341D9A171E0066AA4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCA1B2401D9A17400066AA4A /* AXRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXRefreshControl.h; path = Classes/AXRefreshControl.h; sourceTree = "<group>"; };
+		DCA1B2411D9A17400066AA4A /* AXRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXRefreshControl.m; path = Classes/AXRefreshControl.m; sourceTree = "<group>"; };
+		DCA1B2441D9A176E0066AA4A /* UIScrollView+Refreshable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+Refreshable.h"; path = "Classes/UIScrollView+Refreshable.h"; sourceTree = "<group>"; };
+		DCA1B2451D9A176E0066AA4A /* UIScrollView+Refreshable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+Refreshable.m"; path = "Classes/UIScrollView+Refreshable.m"; sourceTree = "<group>"; };
+		DCD0A48E1D9A66DE00BE4C23 /* AXRefreshControl_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXRefreshControl_Private.h; path = Classes/AXRefreshControl_Private.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B490C9C91056A21062043691 /* Pods_AXRefreshControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +93,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37AD05AB13D5506CE6AD26A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B70063EA2B428CE6175AD842 /* Pods-AXRefreshControl.debug.xcconfig */,
+				102A2C5760A96B32C34363FF /* Pods-AXRefreshControl.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A0F07293DDBD06BDAED29942 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				962694F23F00D8218DE05C7D /* Pods_AXRefreshControl.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DCA1B2011D9A171E0066AA4A = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +117,8 @@
 				DCA1B2261D9A171E0066AA4A /* AXRefreshControlTests */,
 				DCA1B2311D9A171E0066AA4A /* AXRefreshControlUITests */,
 				DCA1B20B1D9A171E0066AA4A /* Products */,
+				37AD05AB13D5506CE6AD26A9 /* Pods */,
+				A0F07293DDBD06BDAED29942 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +139,9 @@
 				DCA1B2111D9A171E0066AA4A /* AppDelegate.m */,
 				DCA1B2131D9A171E0066AA4A /* ViewController.h */,
 				DCA1B2141D9A171E0066AA4A /* ViewController.m */,
+				DC7FD8DC1D9B53FB00C39C0C /* ScrollViewController.h */,
+				DC7FD8DD1D9B53FB00C39C0C /* ScrollViewController.m */,
+				DCA1B2431D9A17440066AA4A /* Classes */,
 				DCA1B2161D9A171E0066AA4A /* Main.storyboard */,
 				DCA1B2191D9A171E0066AA4A /* Assets.xcassets */,
 				DCA1B21B1D9A171E0066AA4A /* LaunchScreen.storyboard */,
@@ -140,6 +177,18 @@
 			path = AXRefreshControlUITests;
 			sourceTree = "<group>";
 		};
+		DCA1B2431D9A17440066AA4A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DCA1B2401D9A17400066AA4A /* AXRefreshControl.h */,
+				DCD0A48E1D9A66DE00BE4C23 /* AXRefreshControl_Private.h */,
+				DCA1B2411D9A17400066AA4A /* AXRefreshControl.m */,
+				DCA1B2441D9A176E0066AA4A /* UIScrollView+Refreshable.h */,
+				DCA1B2451D9A176E0066AA4A /* UIScrollView+Refreshable.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +196,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCA1B2371D9A171E0066AA4A /* Build configuration list for PBXNativeTarget "AXRefreshControl" */;
 			buildPhases = (
+				70FE7303E6C49BBF897EF3AE /* [CP] Check Pods Manifest.lock */,
 				DCA1B2061D9A171E0066AA4A /* Sources */,
 				DCA1B2071D9A171E0066AA4A /* Frameworks */,
 				DCA1B2081D9A171E0066AA4A /* Resources */,
+				CBE85F7ABEF88CB11F3EDC8C /* [CP] Embed Pods Frameworks */,
+				7E42AF9509B60C24B1337ECC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,6 +323,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		70FE7303E6C49BBF897EF3AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7E42AF9509B60C24B1337ECC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AXRefreshControl/Pods-AXRefreshControl-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBE85F7ABEF88CB11F3EDC8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AXRefreshControl/Pods-AXRefreshControl-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DCA1B2061D9A171E0066AA4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -278,7 +378,10 @@
 			files = (
 				DCA1B2151D9A171E0066AA4A /* ViewController.m in Sources */,
 				DCA1B2121D9A171E0066AA4A /* AppDelegate.m in Sources */,
+				DCA1B2421D9A17400066AA4A /* AXRefreshControl.m in Sources */,
+				DC7FD8DE1D9B53FB00C39C0C /* ScrollViewController.m in Sources */,
 				DCA1B20F1D9A171E0066AA4A /* main.m in Sources */,
+				DCA1B2461D9A176E0066AA4A /* UIScrollView+Refreshable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +454,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -399,6 +503,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -425,6 +530,7 @@
 		};
 		DCA1B2381D9A171E0066AA4A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B70063EA2B428CE6175AD842 /* Pods-AXRefreshControl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TKA48YVS5T;
@@ -437,6 +543,7 @@
 		};
 		DCA1B2391D9A171E0066AA4A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 102A2C5760A96B32C34363FF /* Pods-AXRefreshControl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TKA48YVS5T;
@@ -516,6 +623,7 @@
 				DCA1B2391D9A171E0066AA4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DCA1B23A1D9A171E0066AA4A /* Build configuration list for PBXNativeTarget "AXRefreshControlTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +632,7 @@
 				DCA1B23C1D9A171E0066AA4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DCA1B23D1D9A171E0066AA4A /* Build configuration list for PBXNativeTarget "AXRefreshControlUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +641,7 @@
 				DCA1B23F1D9A171E0066AA4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
