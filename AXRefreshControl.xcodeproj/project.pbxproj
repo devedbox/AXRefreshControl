@@ -19,6 +19,7 @@
 		DCA1B2331D9A171E0066AA4A /* AXRefreshControlUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2321D9A171E0066AA4A /* AXRefreshControlUITests.m */; };
 		DCA1B2421D9A17400066AA4A /* AXRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2411D9A17400066AA4A /* AXRefreshControl.m */; };
 		DCA1B2461D9A176E0066AA4A /* UIScrollView+Refreshable.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA1B2451D9A176E0066AA4A /* UIScrollView+Refreshable.m */; };
+		DCF714DC1DA3EE85006F6B20 /* AXRefreshControl.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCF714DB1DA3EE85006F6B20 /* AXRefreshControl.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		DCA1B2441D9A176E0066AA4A /* UIScrollView+Refreshable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+Refreshable.h"; path = "Classes/UIScrollView+Refreshable.h"; sourceTree = "<group>"; };
 		DCA1B2451D9A176E0066AA4A /* UIScrollView+Refreshable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+Refreshable.m"; path = "Classes/UIScrollView+Refreshable.m"; sourceTree = "<group>"; };
 		DCD0A48E1D9A66DE00BE4C23 /* AXRefreshControl_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXRefreshControl_Private.h; path = Classes/AXRefreshControl_Private.h; sourceTree = "<group>"; };
+		DCF714DB1DA3EE85006F6B20 /* AXRefreshControl.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AXRefreshControl.bundle; path = Classes/AXRefreshControl.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				DCA1B2411D9A17400066AA4A /* AXRefreshControl.m */,
 				DCA1B2441D9A176E0066AA4A /* UIScrollView+Refreshable.h */,
 				DCA1B2451D9A176E0066AA4A /* UIScrollView+Refreshable.m */,
+				DCF714DB1DA3EE85006F6B20 /* AXRefreshControl.bundle */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF714DC1DA3EE85006F6B20 /* AXRefreshControl.bundle in Resources */,
 				DCA1B21D1D9A171E0066AA4A /* LaunchScreen.storyboard in Resources */,
 				DCA1B21A1D9A171E0066AA4A /* Assets.xcassets in Resources */,
 				DCA1B2181D9A171E0066AA4A /* Main.storyboard in Resources */,
@@ -477,7 +481,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -520,7 +524,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

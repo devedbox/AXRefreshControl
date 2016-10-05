@@ -11,31 +11,55 @@
 #import <objc/runtime.h>
 #import <pop/POP.h>
 
-@interface _AXScrollViewObserverableManager : NSObject
-/// Scroll view.
-@property(weak, nonatomic) UIScrollView *scrollView;
-@end
-
 @implementation UIScrollView (Refreshable)
-+ (void)ax_exchangeClassMethod1:(SEL)method1 method2:(SEL)method2
-{
-    method_exchangeImplementations(class_getClassMethod(self, method1), class_getClassMethod(self, method2));
++ (void)ax_exchangeClassOriginalMethod:(SEL)original swizzledMethod:(SEL)swizzled {
+    Method _method1 = class_getInstanceMethod(self, original);
+    if (_method1 == NULL) return;
+    method_exchangeImplementations(_method1, class_getClassMethod(self, swizzled));
 }
 
-+ (void)ax_exchangeInstanceMethod1:(SEL)method1 method2:(SEL)method2
-{
-    method_exchangeImplementations(class_getInstanceMethod(self, method1), class_getInstanceMethod(self, method2));
++ (void)ax_exchangeInstanceOriginalMethod:(SEL)original swizzledMethod:(SEL)swizzled {
+    Method _method1 = class_getInstanceMethod(self, original);
+    if (_method1 == NULL) return;
+    method_exchangeImplementations(_method1, class_getInstanceMethod(self, swizzled));
 }
 
 #pragma mark - Methods
-
-- (void)dealloc {
-    [self removeObserver:self.observeManager forKeyPath:@"contentOffset"];
-    [self setContentInset:self.originalInset];
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self ax_exchangeInstanceOriginalMethod:NSSelectorFromString(@"_notifyDidScroll") swizzledMethod:@selector(ax_scrollViewDidScroll)];
+        [self ax_exchangeInstanceOriginalMethod:NSSelectorFromString(@"_scrollViewWillBeginDragging") swizzledMethod:@selector(ax_scrollViewWillBeginDragging)];
+        [self ax_exchangeInstanceOriginalMethod:NSSelectorFromString(@"_scrollViewDidEndDraggingForDelegateWithDeceleration:") swizzledMethod:@selector(ax_scrollViewDidEndDraggingForDelegateWithDeceleration:)];
+        [self ax_exchangeInstanceOriginalMethod:NSSelectorFromString(@"_scrollViewDidEndDeceleratingForDelegate") swizzledMethod:@selector(ax_scrollViewDidEndDeceleratingForDelegate)];
+    });
 }
 
-- (void)addObserver {
-    [self addObserver:self.observeManager forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:NULL];
+- (void)ax_scrollViewWillBeginDragging {
+    [self ax_scrollViewWillBeginDragging];
+    if (![self isRefreshEnabled]) return;
+    [self.ax_refreshControl handleScrollViewWillBeginDragging:self];
+}
+
+- (void)ax_scrollViewDidScroll {
+    [self ax_scrollViewDidScroll];
+    if (![self isRefreshEnabled]) return;
+    [self.ax_refreshControl handleScrollViewDidScroll:self];
+}
+
+- (void)ax_scrollViewDidEndDraggingForDelegateWithDeceleration:(BOOL)deceleration {
+    [self ax_scrollViewDidEndDraggingForDelegateWithDeceleration:deceleration];
+    if (![self isRefreshEnabled]) return;
+    [self.ax_refreshControl handleScrollViewDidEndDragging:self willDecelerate:deceleration];
+}
+
+- (void)ax_scrollViewDidEndDeceleratingForDelegate {
+    [self ax_scrollViewDidEndDeceleratingForDelegate];
+    if (![self isRefreshEnabled]) return;
+    [self.ax_refreshControl handlescrollViewDidEndDecelerating:self];
+}
+- (void)dealloc {
+    [self setContentInset:self.originalInset];
 }
 
 #pragma mark - Getters
@@ -43,7 +67,7 @@
 - (AXRefreshControl *)ax_refreshControl {
     AXRefreshControl *control = objc_getAssociatedObject(self, _cmd);
     if (!control) {
-        control = [[AXRefreshControl alloc] init];
+        control = [[AXRefreshControl alloc] initWithFrame:CGRectZero];
         control.scrollView = self;
         objc_setAssociatedObject(self, _cmd, control, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
@@ -54,35 +78,23 @@
     return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
 
+- (BOOL)isAnimatingContentInset {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
 - (UIEdgeInsets)originalInset {
     return [objc_getAssociatedObject(self, _cmd) UIEdgeInsetsValue];
 }
 
-- (_AXScrollViewObserverableManager *)observeManager {
-    _AXScrollViewObserverableManager *manager = objc_getAssociatedObject(self, _cmd);
-    if (!manager) {
-        manager = [[_AXScrollViewObserverableManager alloc] init];
-        manager.scrollView = self;
-        [self setObserveManager:manager];
-    }
-    return manager;
-}
-
 #pragma mark - Setters
-- (void)setObserveManager:(_AXScrollViewObserverableManager *)observeManager {
-    objc_setAssociatedObject(self, @selector(observeManager), observeManager, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 
 - (void)setRefreshEnabled:(BOOL)refreshEnabled {
     objc_setAssociatedObject(self, @selector(isRefreshEnabled), @(refreshEnabled), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-    if (refreshEnabled) {
-        [self addObserver];
-        [self resetOrginalContentInset];
-        self.ax_refreshControl.backgroundColor = [UIColor whiteColor];
-    } else {
-        [self removeObserver:self.observeManager forKeyPath:@"contentOffset"];
-    }
+    [self resetOrginalContentInset];
+}
+
+- (void)setAnimatingContentInset:(BOOL)animatingContentInset {
+    objc_setAssociatedObject(self, @selector(isAnimatingContentInset), @(animatingContentInset), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)setOriginalInset:(UIEdgeInsets)originalInset {
@@ -94,73 +106,40 @@
 }
 
 - (void)beginRefreshing {
-    [self.ax_refreshControl beginRefreshing];
+    if (!self.ax_refreshControl.isRefreshing) {
+        [self.ax_refreshControl beginRefreshing];
+    }
+    // Set the content inset of the scroll view.
+    if (!self.ax_refreshControl.superview) {
+        [self insertSubview:self.ax_refreshControl atIndex:0];
+    }
+    UIEdgeInsets contentInset = self.originalInset;
+    contentInset.top += kAXRefreshControlHeight;
+    if (self.isDragging) return;
+    self.animatingContentInset = YES;
+    [UIView animateWithDuration:kAXRefreshAnimationDuration delay:0.0 options:UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionAllowUserInteraction animations:^{
+        [self setContentInset:contentInset];
+        [self.ax_refreshControl layoutSubviews];
+    } completion:^(BOOL finished) {
+        if (finished) {
+            self.animatingContentInset = NO;
+        }
+    }];
 }
 
 - (void)endRefreshing {
-    [self.ax_refreshControl endRefreshing];
-}
-@end
-
-@implementation _AXScrollViewObserverableManager
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"contentOffset"]) {
-        CGPoint contentOffset = [[change objectForKey:NSKeyValueChangeNewKey] CGPointValue];
-        contentOffset.y+=_scrollView.originalInset.top;
-
-        if (contentOffset.y < 0 && [_scrollView isRefreshEnabled]) {
-            // Add the refresh control to scroll view.
-            if (!_scrollView.ax_refreshControl.superview) {
-                [_scrollView insertSubview:_scrollView.ax_refreshControl atIndex:0];
-            }
-            // Update the frame of refresh control.
-            [_scrollView.ax_refreshControl setFrame:CGRectMake(0, contentOffset.y, CGRectGetWidth(_scrollView.frame), MAX(-contentOffset.y, kAXRefreshControlIndicatorSize))];
-            
-            int64_t components = MAX(1, -((int64_t)contentOffset.y+kAXRefreshControlIndicatorSize/2)/(kAXRefreshControlHeight/12));
-            // Handle with none animating.
-            if (!_scrollView.ax_refreshControl.refreshIndicator.isAnimating) {
-                if (contentOffset.y >= -kAXRefreshControlIndicatorSize/2) {
-                    [_scrollView.ax_refreshControl.refreshIndicator setRotating:NO];
-                    _scrollView.ax_refreshControl.refreshIndicator.rotateOffset = 0.0;
-                    _scrollView.ax_refreshControl.refreshIndicator.drawingComponents = 1;
-                    _scrollView.ax_refreshControl.refreshIndicator.alpha = -contentOffset.y/(kAXRefreshControlIndicatorSize/2);
-                } else {
-                    _scrollView.ax_refreshControl.refreshIndicator.alpha = 1.0;
-                    _scrollView.ax_refreshControl.refreshIndicator.drawingComponents = components;
-                    // Begin the animating if components reach to the value.
-                    if (components >= 12) {
-                        if (_scrollView.isDragging) {
-                            if (!_scrollView.ax_refreshControl.refreshIndicator.isRotating) {
-                                [_scrollView.ax_refreshControl.refreshIndicator rotateWithRepeat:0 reverse:YES duration:_scrollView.ax_refreshControl.refreshIndicator.rotateDuration*2];
-                            }
-                        } else {
-                            [_scrollView.ax_refreshControl beginRefreshing];
-                        }
-                    }
-                }
-            } else {
-                // Update conent inset and content offset.
-                // Set the content inset to the target content inset.
-                if (contentOffset.y+kAXRefreshControlHeight<=0 && !_scrollView.isDragging && _scrollView.ax_refreshControl.refreshIndicator.isAnimating) {
-                    UIEdgeInsets contentInset = _scrollView.originalInset;
-                    contentInset.top+=kAXRefreshControlHeight;
-                    if (UIEdgeInsetsEqualToEdgeInsets(contentInset, _scrollView.contentInset)) return;
-
-                    [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                        _scrollView.contentInset = contentInset;
-                        _scrollView.contentOffset = CGPointMake(0, contentOffset.y-_scrollView.originalInset.top);
-                    } completion:NULL];
-                }
-            }
-        } else {
-            if (_scrollView.ax_refreshControl.superview && !_scrollView.ax_refreshControl.refreshIndicator.isAnimating) {
-                [_scrollView.ax_refreshControl removeFromSuperview];
-                [_scrollView.ax_refreshControl.refreshIndicator pop_removeAllAnimations];
-                [_scrollView.ax_refreshControl.refreshIndicator.layer pop_removeAllAnimations];
-            }
+    // Reset the content inset of the scroll view.
+    UIEdgeInsets contentInset = self.originalInset;
+    if (self.isDragging) return;
+    self.animatingContentInset = YES;
+    [UIView animateWithDuration:kAXRefreshAnimationDuration delay:0.0 options:UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionAllowUserInteraction animations:^{
+        [self setContentInset:contentInset];
+        [self.ax_refreshControl layoutSubviews];
+    } completion:^(BOOL finished) {
+        if (finished) {
+            self.animatingContentInset = NO;
+            self.ax_refreshControl.hidden = YES;
         }
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
+    }];
 }
 @end

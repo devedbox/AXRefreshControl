@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
   s.author             = { 'aiXing' => '862099730@qq.com' }
   s.platform     = :ios, '7.0'
 
-  s.source       = { :git => 'https://github.com/devedbox/AXRefreshControl.git', :tag => '0.0.4' }
-  s.source_files  = 'AXRefreshControl/Classes/*.{m}'
+  s.source       = { :git => 'https://github.com/devedbox/AXRefreshControl.git', :tag => '0.0.1' }
+  s.source_files  = 'AXRefreshControl/Classes/*.{h,m}'
   s.public_header_files = 'AXRefreshControl/Classes/AXRefreshControl.h',
                           'AXRefreshControl/Classes/UIScrollView+Refreshable.h'
   s.private_header_files = 'AXRefreshControl/Classes/*_Private.h'

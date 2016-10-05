@@ -14,9 +14,10 @@
 @property(readonly, nonatomic) AXRefreshControl *ax_refreshControl;
 /// Refresh enabled.
 @property(assign, nonatomic, getter=isRefreshEnabled) BOOL refreshEnabled;
-
+/// Reset the original content inset of scroll view when the contnet inset has changed.
 - (void)resetOrginalContentInset;
-
+/// Begin refreshing and set the content inset and content offset to the right value.
 - (void)beginRefreshing;
+/// End refreshing and reset the content inset and offset.
 - (void)endRefreshing;
 @end

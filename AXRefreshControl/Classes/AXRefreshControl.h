@@ -8,9 +8,29 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(int64_t, AXRefreshControlState) {
+    AXRefreshControlStateNormal,
+    AXRefreshControlStateTransiting,
+    AXRefreshControlStateReached,
+    AXRefreshControlStateReleased,
+    AXRefreshControlStateRefreshing,
+    AXRefreshControlStatePending
+};
+
+@protocol AXRefreshControlIndicatorDelegate <NSObject>
+@required
+- (void)beginAnimating;
+- (void)endAniamting;
+- (void)setNeedsEndAnimating;
+- (void)handleRefreshControlStateChanged:(AXRefreshControlState)state transition:(CGFloat)transition;
+@end
+
 @interface AXRefreshControl : UIControl
 
-@property (nonatomic, readonly, getter=isRefreshing) BOOL refreshing;
+/// State of refresh control.
+@property(assign, nonatomic) AXRefreshControlState refreshState;
+
+@property(nonatomic, readonly, getter=isRefreshing) BOOL refreshing;
 
 // May be used to indicate to the refreshControl that an external event has initiated the refresh action
 - (void)beginRefreshing NS_AVAILABLE_IOS(7_0);

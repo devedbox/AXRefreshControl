@@ -8,8 +8,18 @@
 
 #import "AXRefreshControl.h"
 #import "AXRefreshControl_Private.h"
+#import "UIScrollView+Refreshable.h"
+#import <objc/runtime.h>
 #import <pop/POP.h>
+#import <AudioToolbox/AudioToolbox.h>
 
+#ifndef __IPHONE_10_0
+#define __IPHONE_10_0 100000
+#endif
+#ifndef kCFCoreFoundationVersionNumber_iOS_9_4
+#define kCFCoreFoundationVersionNumber_iOS_9_4 1280.38
+#endif
+#pragma mark - AXRefreshControl
 @implementation AXRefreshControl
 @synthesize refreshIndicator = _refreshIndicator;
 #pragma mark - Initializer
@@ -39,10 +49,26 @@
 }
 
 #pragma mark - Override
+
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+    // Place the indicator view in the center of refresh control.
     _refreshIndicator.center = CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(self.bounds)/2);
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+    
+    if (newSuperview) {
+        [self setFrame:CGRectMake(0, 0, CGRectGetWidth(newSuperview.frame), kAXRefreshControlHeight)];
+        [self layoutSubviews];
+    }
+}
+
+- (void)setTintColor:(UIColor *)tintColor {
+    [super setTintColor:tintColor];
+    
+    self.refreshIndicator.tintColor = tintColor;
 }
 
 #pragma mark - Getters
@@ -53,54 +79,218 @@
 - (AXRefreshControlIndicator *)refreshIndicator {
     if (_refreshIndicator) return _refreshIndicator;
     _refreshIndicator = [[AXRefreshControlIndicator alloc] initWithFrame:CGRectMake(0, 0, kAXRefreshControlIndicatorSize, kAXRefreshControlIndicatorSize)];
+    [_refreshIndicator setCenter:CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetHeight(self.frame)/2)];
     _refreshIndicator.backgroundColor = [UIColor clearColor];
     return _refreshIndicator;
 }
 
 #pragma mark - Public
 - (void)beginRefreshing {
-    if (self.refreshIndicator.drawingComponents != 12) {
-        self.refreshIndicator.drawingComponents = 12;
-    }
     [self.refreshIndicator beginAnimating];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
-    // Set the content inset of the scroll view.
-    UIEdgeInsets contentInset = _scrollView.originalInset;
-    contentInset.top += kAXRefreshControlHeight;
-    if (_scrollView.isDragging) return;
-    POPBasicAnimation *anim1 = [POPBasicAnimation animationWithPropertyNamed:kPOPScrollViewContentInset];
-    anim1.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    anim1.toValue = [NSValue valueWithUIEdgeInsets:contentInset];
-    [_scrollView pop_removeAnimationForKey:@"contentInset"];
-    [_scrollView pop_addAnimation:anim1 forKey:@"contentInset"];
-    POPBasicAnimation *anim2 = [POPBasicAnimation animationWithPropertyNamed:kPOPScrollViewContentOffset];
-    anim2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    anim2.toValue = [NSValue valueWithCGPoint:CGPointMake(0, -contentInset.top)];
-    [_scrollView pop_removeAnimationForKey:@"contentOffset"];
-    [_scrollView pop_addAnimation:anim2 forKey:@"contentOffset"];
+    // Scroll view begin refreshing.
+    [_scrollView beginRefreshing];
 }
 
 - (void)endRefreshing {
+    if (_scrollView.isDragging) {
+        [self setRefreshState:AXRefreshControlStatePending];
+        [self handlePendingStateWithContentOffset:CGPointMake(0, _scrollView.contentOffset.y + _scrollView.contentInset.top)];
+        return;
+    }
     [self.refreshIndicator endAniamting];
+    [self setRefreshState:AXRefreshControlStateReached];
+    // Scroll view end refreshing.
+    [_scrollView endRefreshing];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
-    // Reset the content inset of the scroll view.
-    UIEdgeInsets contentInset = _scrollView.originalInset;
-    if (_scrollView.isDragging) return;
-    POPBasicAnimation *anim1 = [POPBasicAnimation animationWithPropertyNamed:kPOPScrollViewContentInset];
-    anim1.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    anim1.toValue = [NSValue valueWithUIEdgeInsets:contentInset];
-    [_scrollView pop_removeAnimationForKey:@"contentInset"];
-    [_scrollView pop_addAnimation:anim1 forKey:@"contentInset"];
-    POPBasicAnimation *anim2 = [POPBasicAnimation animationWithPropertyNamed:kPOPScrollViewContentOffset];
-    anim2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    anim2.toValue = [NSValue valueWithCGPoint:CGPointMake(0, -contentInset.top)];
-    [_scrollView pop_removeAnimationForKey:@"contentOffset"];
-    [_scrollView pop_addAnimation:anim2 forKey:@"contentOffset"];
+}
+
+- (void)handleScrollViewDidScroll:(UIScrollView *)scrollView {// Any offset changed.
+    CGPoint contentOffset = scrollView.contentOffset;
+    contentOffset.y+=_scrollView.originalInset.top;
+    
+    // Add the refresh control to scroll view.
+    if (!self.superview) {
+        [_scrollView insertSubview:self atIndex:0];
+    }
+    [self setHidden:NO];
+    // Update the frame of refresh control.
+    [self setFrame:CGRectMake(0, MIN(contentOffset.y, 0), CGRectGetWidth(_scrollView.frame), MAX(-contentOffset.y, kAXRefreshControlHeight))];
+    
+    switch (_refreshState) {
+        case AXRefreshControlStateTransiting:
+            [self handleTransitingStateWithContentOffset:contentOffset];
+            if (-contentOffset.y >= kAXRefreshControlHeight) {
+                [self setRefreshState:AXRefreshControlStateReached];
+                [self handleReachedStateWithContentOffset:contentOffset];
+            }
+            break;
+        case AXRefreshControlStateReached: {
+            if (-contentOffset.y < kAXRefreshControlHeight) {
+                [self setRefreshState:AXRefreshControlStateTransiting];
+            }
+        }
+            break;
+        case AXRefreshControlStateReleased:
+            [self handleReleasedStateWithContentOffset:contentOffset];
+            [self setRefreshState:AXRefreshControlStateRefreshing];
+            break;
+        case AXRefreshControlStateRefreshing:
+            [self handleRefreshingStateWithContentOffset:contentOffset];
+            break;
+        case AXRefreshControlStatePending:
+            [self handlePendingStateWithContentOffset:contentOffset];
+            break;
+        default:
+            [self handleNormalStateWithContentOffset:contentOffset];
+            if (contentOffset.y < 0 && -contentOffset.y < kAXRefreshControlHeight) {
+                [self setRefreshState:AXRefreshControlStateTransiting];
+            }
+            break;
+    }
+    
+    if (contentOffset.y >= 0 && _refreshState != AXRefreshControlStateRefreshing && _refreshState != AXRefreshControlStatePending) {
+        [self setRefreshState:AXRefreshControlStateNormal];
+        [self handleNormalStateWithContentOffset:contentOffset];
+    }
+}
+
+- (void)handleScrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    if (_refreshState == AXRefreshControlStateNormal) _scrollView.originalInset = _scrollView.contentInset;
+    
+    CGPoint contentOffset = scrollView.contentOffset;
+    contentOffset.y+=_scrollView.originalInset.top;
+    
+    if (_refreshState == AXRefreshControlStateRefreshing || _refreshState == AXRefreshControlStatePending) return;
+    
+    [scrollView pop_removeAnimationForKey:kPOPScrollViewContentInset];
+    
+    if (contentOffset.y >= 0) {
+        [self setRefreshState:AXRefreshControlStateNormal];
+    } else if (-contentOffset.y < kAXRefreshControlHeight) {
+        [self setRefreshState:AXRefreshControlStateTransiting];
+    } else {
+        [self setRefreshState:AXRefreshControlStateReached];
+        [self handleReachedStateWithContentOffset:contentOffset];
+    }
+}
+
+- (void)handleScrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    CGPoint contentOffset = scrollView.contentOffset;
+    if (contentOffset.y >= 0) return;
+    contentOffset.y+=_scrollView.originalInset.top;
+    
+    if (_refreshState == AXRefreshControlStateRefreshing) return;
+    
+    if (_refreshState == AXRefreshControlStatePending) {
+        if (-scrollView.contentOffset.y >= kAXRefreshControlHeight) return;
+        [_scrollView endRefreshing];
+        [self.refreshIndicator endAniamting];
+        [self setRefreshState:AXRefreshControlStateNormal];
+    }
+    
+    if (contentOffset.y >= 0) {
+        [self setRefreshState:AXRefreshControlStateNormal];
+    } else if (-contentOffset.y < kAXRefreshControlHeight) {
+        [self setRefreshState:AXRefreshControlStateTransiting];
+    } else {
+        [self setRefreshState:AXRefreshControlStateReleased];
+        // Play reached sound.
+        NSTimeInterval timeinterval = [[NSDate date] timeIntervalSinceDate:_reachedDate];
+        if (timeinterval < 0.25) return;
+        [self playSound:@"AXRefreshControl.bundle/sound_refreshing"];
+    }
+}
+
+- (void)handlescrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    CGPoint contentOffset = scrollView.contentOffset;
+    if (contentOffset.y >= 0) return;
+    contentOffset.y+=_scrollView.originalInset.top;
+    
+    if (_refreshState == AXRefreshControlStateRefreshing) return;
+    
+    if (_refreshState == AXRefreshControlStatePending) {
+        [_scrollView endRefreshing];
+        [self.refreshIndicator endAniamting];
+        [self setRefreshState:AXRefreshControlStateTransiting];
+        return;
+    }
+    
+    if (contentOffset.y >= 0) {
+        [self setRefreshState:AXRefreshControlStateNormal];
+    } else if (-contentOffset.y < kAXRefreshControlHeight) {
+        [self setRefreshState:AXRefreshControlStateTransiting];
+    } else {
+        [self setRefreshState:AXRefreshControlStateReleased];
+    }
+}
+
+#pragma mark - Handler.
+- (void)handleNormalStateWithContentOffset:(CGPoint)contentOffset {
+    if (!_scrollView.animatingContentInset) {
+        [self setHidden:YES];
+    }
+    [self.refreshIndicator handleRefreshControlStateChanged:AXRefreshControlStateNormal transition:-contentOffset.y];
+}
+
+- (void)handleTransitingStateWithContentOffset:(CGPoint)contentOffset {
+    [self.refreshIndicator handleRefreshControlStateChanged:AXRefreshControlStateTransiting transition:-contentOffset.y];
+}
+
+- (void)handleReachedStateWithContentOffset:(CGPoint)contentOffset {
+    // Play reached sound.
+    if (_scrollView.isDragging) {
+        _reachedDate = [NSDate date];
+        [self playSound:@"AXRefreshControl.bundle/sound_reached"];
+    }
+    [self.refreshIndicator handleRefreshControlStateChanged:AXRefreshControlStateReached transition:-contentOffset.y];
+}
+
+- (void)handleReleasedStateWithContentOffset:(CGPoint)contentOffset {
+    [self.refreshIndicator handleRefreshControlStateChanged:AXRefreshControlStateReleased transition:-contentOffset.y];
+}
+
+- (void)handleRefreshingStateWithContentOffset:(CGPoint)contentOffset {
+    if (self.refreshIndicator.isAnimating || self.refreshIndicator.neededEndAnimating || _scrollView.isDragging) return;
+    [self.refreshIndicator handleRefreshControlStateChanged:AXRefreshControlStateRefreshing transition:-contentOffset.y];
+    [self beginRefreshing];
+}
+
+- (void)handlePendingStateWithContentOffset:(CGPoint)contentOffset {
+    [self.refreshIndicator handleRefreshControlStateChanged:AXRefreshControlStatePending transition:-contentOffset.y];
+}
+
+#pragma mark - Private
+- (SystemSoundID)playSound:(NSString *)soundName
+{
+    SystemSoundID ssid;
+    NSString* pathName = nil;
+    NSBundle *bundle = [NSBundle mainBundle];
+    pathName = [bundle pathForResource:soundName ofType:@"wav"];
+    if (pathName) {
+        NSURL* pathUrl = [[NSURL alloc] initFileURLWithPath:pathName];
+        if (pathUrl) {
+            OSStatus err = AudioServicesCreateSystemSoundID((__bridge CFURLRef)pathUrl, &ssid);
+            if (err == kAudioServicesNoError) {
+                AudioServicesPlaySystemSound(ssid);
+                return ssid;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
+    }
+    else {
+        return 0;
+    }
 }
 @end
-
-static NSString *const _kAXRefreshIndicatorRotateAnimationKey = @"_kAXRefreshIndicatorRotateAnimationKey";
-static NSString *const _kAXRefreshIndicatorAnimatedColorIndexKey = @"_animatedColorIndex";
+#pragma mark - AXRefreshControlIndicator
+@interface AXRefreshControlIndicator (ColorIndex)
+/// Shape layer.
+@property(strong, nonatomic) CADisplayLink *displayLink;
+@end
 
 @implementation AXRefreshControlIndicator
 @synthesize animating = _animating, rotating = _rotating;
@@ -134,7 +324,6 @@ static NSString *const _kAXRefreshIndicatorAnimatedColorIndexKey = @"_animatedCo
 
 - (void)initializer {
     _lineWidth = 2.0;
-    _colorDuration = 0.8;
     _rotateDuration = 1.6;
 }
 
@@ -145,8 +334,44 @@ static NSString *const _kAXRefreshIndicatorAnimatedColorIndexKey = @"_animatedCo
     CGFloat angle = M_PI*2/12;
     CGContextRef cxt = UIGraphicsGetCurrentContext();
     UIColor *tintColor = self.tintColor?:[UIColor blackColor];
-    for (int64_t i = _animatedColorIndex; i < _animatedColorIndex+_drawingComponents; i++) {
-        [self drawLineWithAngle:angle*i+_rotateOffset-M_PI_2 context:cxt tintColor:_animating?[tintColor colorWithAlphaComponent:((float)i-(float)_animatedColorIndex)/12.0]:tintColor];
+    // Draw all the possilbe line using the proper tint color.
+    for (int64_t i = _animatedColorIndex; i < _animatedColorIndex+_drawingComponents; i++) [self drawLineWithAngle:angle*i+_rotateOffset-M_PI_2 context:cxt tintColor:_animating&&!_neededEndAnimating?[tintColor colorWithAlphaComponent:((float)i-(float)_animatedColorIndex)/12.0]:tintColor];
+}
+
+- (void)handleRefreshControlStateChanged:(AXRefreshControlState)state transition:(CGFloat)transition {
+    switch (state) {
+        case AXRefreshControlStateTransiting: {
+            if (self.isAnimating) break;
+            int64_t components = MAX(1, ceil(transition/(kAXRefreshControlHeight/12)));
+            if (components > 12) return;
+            self.drawingComponents = components;
+            self.rotating = NO;
+        }
+            break;
+        case AXRefreshControlStateReached: {
+            if (self.isAnimating) break;
+            if (self.drawingComponents != 12) {
+                [self setDrawingComponents:12];
+            }
+            if (!self.isRotating) {
+                [self rotateWithRepeat:0 reverse:YES duration:_rotateDuration*2];
+            }
+        }
+            break;
+        case AXRefreshControlStateReleased: {
+            
+        }
+            break;
+        case AXRefreshControlStateRefreshing:
+            
+            break;
+        case AXRefreshControlStatePending: {
+            if (_neededEndAnimating) break;
+            [self setNeedsEndAnimating];
+        }
+            break;
+        default:
+            break;
     }
 }
 
@@ -157,6 +382,10 @@ static NSString *const _kAXRefreshIndicatorAnimatedColorIndexKey = @"_animatedCo
 
 - (BOOL)isRotating {
     return _rotating;
+}
+
+- (CADisplayLink *)displayLink {
+    return objc_getAssociatedObject(self, _cmd);
 }
 
 #pragma mark - Setters
@@ -177,10 +406,9 @@ static NSString *const _kAXRefreshIndicatorAnimatedColorIndexKey = @"_animatedCo
 
 - (void)setAnimating:(BOOL)animating {
     _animating = animating;
-    [self pop_removeAnimationForKey:_kAXRefreshIndicatorAnimatedColorIndexKey];
     
     if (animating) {
-        [self addColorAnimationRepeat:0 duration:_colorDuration];
+        [self addColorIndexAnimation];
     }
 }
 
@@ -189,61 +417,66 @@ static NSString *const _kAXRefreshIndicatorAnimatedColorIndexKey = @"_animatedCo
     if (rotating) {
         [self rotateWithRepeat:0 reverse:NO duration:_rotateDuration];
     } else {
-        [self pop_removeAnimationForKey:_kAXRefreshIndicatorRotateAnimationKey];
+        [self.layer removeAnimationForKey:@"transform.rotation"];
     }
+}
+
+- (void)setDisplayLink:(CADisplayLink *)displayLink {
+    objc_setAssociatedObject(self, @selector(displayLink), displayLink, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark - Public 
 - (void)rotateWithRepeat:(int64_t)repeat reverse:(BOOL)reverse duration:(NSTimeInterval)duration {
     _rotating = YES;
-    POPBasicAnimation *rotateAnimation = [POPBasicAnimation linearAnimation];
-    POPAnimatableProperty *property = [POPAnimatableProperty propertyWithName:_kAXRefreshIndicatorRotateAnimationKey initializer:^(POPMutableAnimatableProperty *prop) {
-        // Read value.
-        prop.readBlock = ^(AXRefreshControlIndicator *indicator, CGFloat values[]) {
-            values[0] = indicator.rotateOffset;
-        };
-        // write value
-        prop.writeBlock = ^(AXRefreshControlIndicator *indicator, const CGFloat values[]) {
-            [indicator setRotateOffset:values[0]];
-        };
-    }];
-    rotateAnimation.property = property;
-    rotateAnimation.duration = duration;
-    rotateAnimation.toValue = @(reverse?-M_PI*2:M_PI*2);
-    rotateAnimation.repeatForever = repeat == 0;
-    if (!rotateAnimation.repeatForever) {
-        rotateAnimation.repeatCount = repeat;
-    }
-    [self pop_removeAnimationForKey:_kAXRefreshIndicatorRotateAnimationKey];
-    [self pop_addAnimation:rotateAnimation forKey:_kAXRefreshIndicatorRotateAnimationKey];
+    // Create a rotate animation.
+    CABasicAnimation *rotating = [self rotateAnimationWithRepeat:repeat reverse:reverse duration:duration];
+    [self.layer addAnimation:rotating forKey:@"transform.rotation"];
 }
 
 - (void)beginAnimating {
-    POPSpringAnimation *scale = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-    CGFloat widthDiff = CGRectGetWidth(self.frame)*0.3;
-    CGFloat heightDiff = CGRectGetHeight(self.frame)*0.3;
-    CGRect original = self.frame;
-    scale.springSpeed = 8;
-    scale.springBounciness = 20;
-    scale.fromValue = [NSValue valueWithCGRect:CGRectMake(original.origin.x - widthDiff/2, original.origin.y - heightDiff/2, original.size.width+widthDiff, original.size.height+heightDiff)];
-    scale.toValue = [NSValue valueWithCGRect:original];
-    scale.removedOnCompletion = YES;
-    [self.layer pop_removeAnimationForKey:@"scale"];
-    [self.layer pop_addAnimation:scale forKey:@"scale"];
-    
+    if (self.drawingComponents != 12) {
+        self.drawingComponents = 12;
+    }
+    // Begin with a scale aimation.
+    CAKeyframeAnimation *scale1 = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+    scale1.values = @[@(1.0), @(1.4), @(1.0)];
+    scale1.removedOnCompletion = YES;
+    scale1.fillMode = kCAFillModeForwards;
+    scale1.duration = kAXRefreshAnimationDuration;
+    [self.layer addAnimation:scale1 forKey:@"transform.scale"];
     // Begin rotate.
     [self rotateWithRepeat:1 reverse:NO duration:_rotateDuration];
-    [self _beginAnimating];
+    [self setAnimating:YES];
 }
 
-
 - (void)endAniamting {
-    _animating = NO;
-    [self pop_removeAnimationForKey:_kAXRefreshIndicatorAnimatedColorIndexKey];
-    [self pop_removeAnimationForKey:_kAXRefreshIndicatorRotateAnimationKey];
+    [self setRotating:NO];
+    [self setAnimating:NO];
+    if (self.displayLink) {
+        [self.displayLink invalidate];
+        self.displayLink = nil;
+    }
     // Reset the state of control.
     _animatedColorIndex = 0;
     _rotateOffset = 0.0;
+    _neededEndAnimating = NO;
+    [self setNeedsDisplay];
+    [self rotateWithRepeat:1 reverse:YES duration:_rotateDuration];
+}
+
+- (void)setNeedsEndAnimating {
+    _neededEndAnimating = YES;
+    if (self.displayLink) {
+        [self.displayLink invalidate];
+        self.displayLink = nil;
+        [self setNeedsDisplay];
+    }
+    [self rotateWithRepeat:0 reverse:YES duration:_rotateDuration*2];
+}
+
+- (void)endAniamtingInNeeded {
+    if (!_neededEndAnimating) return;
+    [self endAniamting];
 }
 
 #pragma mark - Helper
@@ -265,30 +498,38 @@ static NSString *const _kAXRefreshIndicatorAnimatedColorIndexKey = @"_animatedCo
     CGContextStrokePath(context);
 }
 
-- (void)_beginAnimating {
-    [self setAnimating:YES];
+- (void)addColorIndexAnimation {
+    if (!self.displayLink) {
+        self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(handleDisplayLink:)];
+    }
+    [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_10_0
+    self.displayLink.frameInterval = 3;
+#else
+    if ([self.displayLink respondsToSelector:@selector(setPreferredFramesPerSecond:)] && kCFCoreFoundationVersionNumber > kCFCoreFoundationVersionNumber_iOS_9_4) {
+        self.displayLink.preferredFramesPerSecond = 20;
+    }
+#endif
 }
 
-- (void)addColorAnimationRepeat:(int64_t)repeat duration:(NSTimeInterval)duration {
-    POPBasicAnimation *colorAnimation = [POPBasicAnimation linearAnimation];
-    POPAnimatableProperty *property = [POPAnimatableProperty propertyWithName:_kAXRefreshIndicatorAnimatedColorIndexKey initializer:^(POPMutableAnimatableProperty *prop) {
-        // Read value.
-        prop.readBlock = ^(AXRefreshControlIndicator *indicator, CGFloat values[]) {
-            values[0] = (CGFloat)indicator.animatedColorIndex;
-        };
-        // write value
-        prop.writeBlock = ^(AXRefreshControlIndicator *indicator, const CGFloat values[]) {
-            [indicator setAnimatedColorIndex:values[0]];
-        };
-    }];
-    colorAnimation.property = property;
-    colorAnimation.duration = duration;
-    if (repeat  <= 0) {
-        colorAnimation.repeatForever = YES;
-    } else {
-        colorAnimation.repeatCount = repeat;
+- (void)handleDisplayLink:(CADisplayLink *)sender {
+    if (++_animatedColorIndex > 12) {
+        _animatedColorIndex = 0;
     }
-    colorAnimation.toValue = @(12);
-    [self pop_addAnimation:colorAnimation forKey:_kAXRefreshIndicatorAnimatedColorIndexKey];
+    [self setAnimatedColorIndex:_animatedColorIndex];
+}
+
+- (CABasicAnimation *)rotateAnimationWithRepeat:(float)repeat reverse:(BOOL)reverse duration:(NSTimeInterval)duration {
+    CABasicAnimation *rotating = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotating.toValue = @(reverse?-M_PI*2:M_PI*2);
+    rotating.duration = duration;
+    [rotating setFillMode:kCAFillModeForwards];
+    rotating.removedOnCompletion = YES;
+    if (repeat == 0) {
+        rotating.repeatCount = CGFLOAT_MAX;
+    } else {
+        rotating.repeatCount = repeat;
+    }
+    return rotating;
 }
 @end

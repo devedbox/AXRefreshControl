@@ -9,7 +9,7 @@
 #import "ScrollViewController.h"
 #import "UIScrollView+Refreshable.h"
 
-@interface ScrollViewController ()
+@interface ScrollViewController ()<UIScrollViewDelegate>
 /// Scroll view.
 @property(weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @end
@@ -23,10 +23,24 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [_scrollView setContentInset:UIEdgeInsetsMake(64, 0, 0, 0)];
-    [_scrollView setRefreshEnabled:YES];
+    
+    [_scrollView setContentInset:UIEdgeInsetsMake(128, 0, 0, 0)];
+//    [_scrollView setRefreshEnabled:NO];
+    [_scrollView setRefreshEnabled:YES];    
+    
+    _scrollView.ax_refreshControl.backgroundColor = [UIColor blackColor];
+    _scrollView.ax_refreshControl.tintColor = [UIColor whiteColor];
+    
     [_scrollView.ax_refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-    [_scrollView.ax_refreshControl beginRefreshing];
+//    [_scrollView.ax_refreshControl beginRefreshing];
+//    
+    _scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
+    
+    _scrollView.delegate = self;
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [_scrollView ax_setContentOffset:CGPointMake(0, -64) animated:YES];
+//    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,14 +59,13 @@
         NSLog(@"End refreshing");
     }
 }
-/*
-#pragma mark - Navigation
+#pragma mark - UIScrollViewDelegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    NSLog(@"%s", __FUNCTION__);
+//}
 
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+//    NSLog(@"%s", __FUNCTION__);
+//}
 @end
