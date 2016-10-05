@@ -32,8 +32,8 @@
     _scrollView.ax_refreshControl.tintColor = [UIColor whiteColor];
     
     [_scrollView.ax_refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-//    [_scrollView.ax_refreshControl beginRefreshing];
-//    
+    [_scrollView.ax_refreshControl beginRefreshing];
+//
     _scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
     
     _scrollView.delegate = self;

@@ -26,21 +26,19 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(int64_t, AXRefreshControlState) {
+    /// State normal. Offset plus original inset more than or equal to zero.
     AXRefreshControlStateNormal,
+    /// State transiting.
     AXRefreshControlStateTransiting,
+    /// State reached.
     AXRefreshControlStateReached,
+    /// State released.
     AXRefreshControlStateReleased,
+    /// State refreshing.
     AXRefreshControlStateRefreshing,
+    /// State pending.
     AXRefreshControlStatePending
 };
-
-@protocol AXRefreshControlIndicatorDelegate <NSObject>
-@required
-- (void)beginAnimating;
-- (void)endAniamting;
-- (void)setNeedsEndAnimating;
-- (void)handleRefreshControlStateChanged:(AXRefreshControlState)state transition:(CGFloat)transition;
-@end
 
 @interface AXRefreshControl : UIControl
 

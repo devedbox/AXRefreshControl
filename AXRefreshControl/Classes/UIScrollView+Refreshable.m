@@ -106,7 +106,6 @@
 
 - (void)setRefreshEnabled:(BOOL)refreshEnabled {
     objc_setAssociatedObject(self, @selector(isRefreshEnabled), @(refreshEnabled), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self resetOrginalContentInset];
 }
 
 - (void)setAnimatingContentInset:(BOOL)animatingContentInset {
@@ -117,11 +116,10 @@
     objc_setAssociatedObject(self, @selector(originalInset), [NSValue valueWithUIEdgeInsets:originalInset], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark - Public
-- (void)resetOrginalContentInset {
-    [self setOriginalInset:self.contentInset];
-}
-
 - (void)beginRefreshing {
+    if (self.originalInset.top - self.contentOffset.y == 0) {
+        [self setOriginalInset:self.contentInset];
+    }
     if (!self.ax_refreshControl.isRefreshing) {
         [self.ax_refreshControl beginRefreshing];
     }
@@ -135,6 +133,7 @@
     self.animatingContentInset = YES;
     [UIView animateWithDuration:kAXRefreshAnimationDuration delay:0.0 options:UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionAllowUserInteraction animations:^{
         [self setContentInset:contentInset];
+        [self setContentOffset:CGPointMake(0, -contentInset.top)];
         [self.ax_refreshControl layoutSubviews];
     } completion:^(BOOL finished) {
         if (finished) {

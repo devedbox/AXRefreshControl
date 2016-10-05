@@ -30,6 +30,14 @@ static CGFloat const kAXRefreshControlIndicatorSize = 30.0;
 
 static NSTimeInterval const kAXRefreshAnimationDuration = 0.40;
 
+@protocol AXRefreshControlIndicatorDelegate <NSObject>
+@required
+- (void)beginAnimating;
+- (void)endAniamting;
+- (void)setNeedsEndAnimating;
+- (void)handleRefreshControlStateChanged:(AXRefreshControlState)state transition:(CGFloat)transition;
+@end
+
 @interface AXRefreshControlIndicator : UIView <AXRefreshControlIndicatorDelegate>
 /// Line width.
 @property(assign, nonatomic) CGFloat lineWidth;
