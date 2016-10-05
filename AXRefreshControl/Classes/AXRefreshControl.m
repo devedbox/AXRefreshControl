@@ -10,7 +10,6 @@
 #import "AXRefreshControl_Private.h"
 #import "UIScrollView+Refreshable.h"
 #import <objc/runtime.h>
-#import <pop/POP.h>
 #import <AudioToolbox/AudioToolbox.h>
 
 #ifndef __IPHONE_10_0

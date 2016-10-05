@@ -9,7 +9,6 @@
 #import "UIScrollView+Refreshable.h"
 #import "AXRefreshControl_Private.h"
 #import <objc/runtime.h>
-#import <pop/POP.h>
 
 @implementation UIScrollView (Refreshable)
 + (void)ax_exchangeClassOriginalMethod:(SEL)original swizzledMethod:(SEL)swizzled {
