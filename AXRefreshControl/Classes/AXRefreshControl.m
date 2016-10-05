@@ -279,7 +279,7 @@
 {
     SystemSoundID ssid;
     NSString* pathName = nil;
-    NSBundle *bundle = [NSBundle mainBundle];
+    NSBundle *bundle = [NSBundle bundleForClass:self.class];
     pathName = [bundle pathForResource:soundName ofType:@"wav"];
     if (pathName) {
         NSURL* pathUrl = [[NSURL alloc] initFileURLWithPath:pathName];
