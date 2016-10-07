@@ -301,57 +301,23 @@
 }
 @end
 #pragma mark - AXRefreshControlIndicator
-@interface AXRefreshControlIndicator (ColorIndex)
-/// Shape layer.
-@property(strong, nonatomic) CADisplayLink *displayLink;
-@end
-
 @implementation AXRefreshControlIndicator
-@synthesize animating = _animating, rotating = _rotating;
+@synthesize rotating = _rotating;
 #pragma mark - Initializer
-- (instancetype)init {
-    if (self = [super init]) {
-        [self initializer];
-    }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-        [self initializer];
-    }
-    return self;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        [self initializer];
-    }
-    return self;
-}
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    [self initializer];
-}
-
 - (void)initializer {
-    _lineWidth = 2.0;
+    [super initializer];
     _rotateDuration = 1.6;
 }
-
-- (void)drawRect:(CGRect)rect {
-    [super drawRect:rect];
-    
+#pragma mark - Override
+- (void)drawComponents {
     // Get the 12 components of the bounds.
     CGFloat angle = M_PI*2/12;
     CGContextRef cxt = UIGraphicsGetCurrentContext();
     UIColor *tintColor = self.tintColor?:[UIColor blackColor];
     // Draw all the possilbe line using the proper tint color.
-    for (int64_t i = _animatedColorIndex; i < _animatedColorIndex+_drawingComponents; i++) [self drawLineWithAngle:angle*i+_rotateOffset-M_PI_2 context:cxt tintColor:_animating&&!_neededEndAnimating?[tintColor colorWithAlphaComponent:((float)i-(float)_animatedColorIndex)/12.0]:tintColor];
+    for (int64_t i = self.animatedColorIndex; i < self.animatedColorIndex+self.drawingComponents; i++) [self drawLineWithAngle:angle*i+_rotateOffset-M_PI_2 context:cxt tintColor:self.animating&&!_neededEndAnimating?[tintColor colorWithAlphaComponent:((float)i-(float)self.animatedColorIndex)/12.0]:tintColor];
 }
-
+#pragma mark - Delegate
 - (void)handleRefreshControlStateChanged:(AXRefreshControlState)state transition:(CGFloat)transition {
     switch (state) {
         case AXRefreshControlStateTransiting: {
@@ -390,40 +356,14 @@
 }
 
 #pragma mark - Getters
-- (BOOL)isAnimating {
-    return _animating;
-}
-
 - (BOOL)isRotating {
     return _rotating;
-}
-
-- (CADisplayLink *)displayLink {
-    return objc_getAssociatedObject(self, _cmd);
 }
 
 #pragma mark - Setters
 - (void)setRotateOffset:(CGFloat)rotateOffset {
     _rotateOffset = rotateOffset;
     [self setNeedsDisplay];
-}
-
-- (void)setAnimatedColorIndex:(int64_t)animatedColorIndex {
-    _animatedColorIndex = animatedColorIndex;
-    [self setNeedsDisplay];
-}
-
-- (void)setDrawingComponents:(int64_t)drawingComponents {
-    _drawingComponents = MIN(12, drawingComponents);
-    [self setNeedsDisplay];
-}
-
-- (void)setAnimating:(BOOL)animating {
-    _animating = animating;
-    
-    if (animating) {
-        [self addColorIndexAnimation];
-    }
 }
 
 - (void)setRotating:(BOOL)rotating {
@@ -434,11 +374,6 @@
         [self.layer removeAnimationForKey:@"transform.rotation"];
     }
 }
-
-- (void)setDisplayLink:(CADisplayLink *)displayLink {
-    objc_setAssociatedObject(self, @selector(displayLink), displayLink, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
 #pragma mark - Public 
 - (void)rotateWithRepeat:(int64_t)repeat reverse:(BOOL)reverse duration:(NSTimeInterval)duration {
     _rotating = YES;
@@ -471,7 +406,7 @@
         self.displayLink = nil;
     }
     // Reset the state of control.
-    _animatedColorIndex = 0;
+    self.animatedColorIndex = 0;
     _rotateOffset = 0.0;
     _neededEndAnimating = NO;
     [self setNeedsDisplay];
@@ -494,44 +429,6 @@
 }
 
 #pragma mark - Helper
-- (void)drawLineWithAngle:(CGFloat)angle context:(CGContextRef)context tintColor:(UIColor *)tintColor {
-    CGContextSetStrokeColorWithColor(context, tintColor.CGColor);
-    CGContextSetLineWidth(context, _lineWidth);
-    CGContextSetLineCap(context, kCGLineCapRound);
-    
-    CGRect box = CGRectInset(self.bounds, _lineWidth, _lineWidth);
-    
-    // Get the begin point of the bounds.
-    CGFloat radius = CGRectGetWidth(box)/2;
-    CGPoint beginPoint = CGPointMake(self.center.x-self.frame.origin.x+radius*0.5*cos(angle), self.center.y-self.frame.origin.y+radius*0.5*sin(angle));
-    CGPoint endPoint = CGPointMake(self.center.x-self.frame.origin.x+radius*cos(angle), self.center.y-self.frame.origin.y+radius*sin(angle));
-    
-    CGContextMoveToPoint(context, beginPoint.x, beginPoint.y);
-    CGContextAddLineToPoint(context, endPoint.x, endPoint.y);
-    
-    CGContextStrokePath(context);
-}
-
-- (void)addColorIndexAnimation {
-    if (!self.displayLink) {
-        self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(handleDisplayLink:)];
-    }
-    [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_10_0
-    self.displayLink.frameInterval = 3;
-#else
-    if ([self.displayLink respondsToSelector:@selector(setPreferredFramesPerSecond:)] && kCFCoreFoundationVersionNumber > kCFCoreFoundationVersionNumber_iOS_9_4) {
-        self.displayLink.preferredFramesPerSecond = 20;
-    }
-#endif
-}
-
-- (void)handleDisplayLink:(CADisplayLink *)sender {
-    if (++_animatedColorIndex > 12) {
-        _animatedColorIndex = 0;
-    }
-    [self setAnimatedColorIndex:_animatedColorIndex];
-}
 
 - (CABasicAnimation *)rotateAnimationWithRepeat:(float)repeat reverse:(BOOL)reverse duration:(NSTimeInterval)duration {
     CABasicAnimation *rotating = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];

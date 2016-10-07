@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AXRefreshControl.xcscheme</key>
+		<key>AXIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>pop.xcscheme</key>
+		<key>Pods-AXRefreshControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5356454FC1400BCD80D778E9A3800060</key>
+		<key>50EFE2161BBAF62CF4DCFA4D06896E44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F61F6855463C033732FEFE6068F340C</key>
+		<key>F0C65F43A7359F9E3A4FA89AD28B986A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

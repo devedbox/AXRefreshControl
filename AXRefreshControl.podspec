@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AXRefreshControl'
-  s.version      = '0.0.2'
+  s.version      = '0.0.3'
   s.summary      = 'A refresh control manager kits.'
   s.description  = <<-DESC
                     A refresh control kits using on iOS platform.
@@ -13,13 +13,13 @@ Pod::Spec.new do |s|
   s.author             = { 'aiXing' => '862099730@qq.com' }
   s.platform     = :ios, '7.0'
 
-  s.source       = { :git => 'https://github.com/devedbox/AXRefreshControl.git', :tag => '0.0.2' }
+  s.source       = { :git => 'https://github.com/devedbox/AXRefreshControl.git', :tag => '0.0.3' }
   s.source_files  = 'AXRefreshControl/Classes/*.{h,m}'
   s.public_header_files = 'AXRefreshControl/Classes/AXRefreshControl.h',
                           'AXRefreshControl/Classes/UIScrollView+Refreshable.h'
   s.private_header_files = 'AXRefreshControl/Classes/*_Private.h'
   s.resource  = 'AXRefreshControl/Classes/*.bundle'
   s.frameworks = 'UIKit', 'Foundation'
-
+  s.dependency 'AXIndicatorView'
   s.requires_arc = true
 end

@@ -5,5 +5,5 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'AXRefreshControl' do
-    pod 'pop'
+    pod 'AXIndicatorView'
 end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9F61F6855463C033732FEFE6068F340C"
+               BlueprintIdentifier = "50EFE2161BBAF62CF4DCFA4D06896E44"
                BuildableName = "Pods_AXRefreshControl.framework"
                BlueprintName = "Pods-AXRefreshControl"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9F61F6855463C033732FEFE6068F340C"
+            BlueprintIdentifier = "50EFE2161BBAF62CF4DCFA4D06896E44"
             BuildableName = "Pods_AXRefreshControl.framework"
             BlueprintName = "Pods-AXRefreshControl"
             ReferencedContainer = "container:Pods.xcodeproj">

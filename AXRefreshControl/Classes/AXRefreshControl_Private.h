@@ -24,6 +24,7 @@
 //  SOFTWARE.
 
 #import "AXRefreshControl.h"
+#import <AXIndicatorView/AXActivityIndicatorView.h>
 
 static CGFloat const kAXRefreshControlHeight = 64.0;
 static CGFloat const kAXRefreshControlIndicatorSize = 30.0;
@@ -38,17 +39,9 @@ static NSTimeInterval const kAXRefreshAnimationDuration = 0.40;
 - (void)handleRefreshControlStateChanged:(AXRefreshControlState)state transition:(CGFloat)transition;
 @end
 
-@interface AXRefreshControlIndicator : UIView <AXRefreshControlIndicatorDelegate>
-/// Line width.
-@property(assign, nonatomic) CGFloat lineWidth;
-/// Drawing percent of the components.
-@property(assign, nonatomic) int64_t drawingComponents;
-/// Animating.
-@property(assign, nonatomic, getter=isAnimating) BOOL animating;
+@interface AXRefreshControlIndicator : AXActivityIndicatorView <AXRefreshControlIndicatorDelegate>
 /// Rotating.
 @property(assign, nonatomic, getter=isRotating) BOOL rotating;
-/// Animated color index.
-@property(assign, nonatomic) int64_t animatedColorIndex;
 /// Rotate offset. Default is 0.0;
 @property(assign, nonatomic) CGFloat rotateOffset;
 /// Animated duration per cycle. Default is 1.6;
