@@ -44,6 +44,7 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        [self ax_exchangeInstanceOriginalMethod:@selector(contentInset) swizzledMethod:@selector(ax_contentInset)];
         [self ax_exchangeInstanceOriginalMethod:@selector(setContentInset:) swizzledMethod:@selector(ax_setContentInset:)];
         [self ax_exchangeInstanceOriginalMethod:NSSelectorFromString(@"_notifyDidScroll") swizzledMethod:@selector(ax_scrollViewDidScroll)];
         [self ax_exchangeInstanceOriginalMethod:NSSelectorFromString(@"_scrollViewWillBeginDragging") swizzledMethod:@selector(ax_scrollViewWillBeginDragging)];
@@ -60,7 +61,7 @@
 - (void)ax_scrollViewWillBeginDragging {
     [self ax_scrollViewWillBeginDragging];
     if (![self isRefreshEnabled]) return;
-    if (self.originalInset.top + self.contentOffset.y >= 0 && !self.ax_refreshControl.isRefreshing) [self setOriginalInset:self.contentInset];
+    if (self.contentInset.top + self.contentOffset.y >= 0 && !self.ax_refreshControl.isRefreshing) [self setOriginalInset:self.contentInset];
     [self.ax_refreshControl handleScrollViewWillBeginDragging:self];
 }
 
@@ -119,6 +120,14 @@
 
 - (BOOL)contentInsetSettingFromInternal {
     return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (UIEdgeInsets)ax_contentInset {
+    UIEdgeInsets contentInset = [self ax_contentInset];
+    if (self.ax_refreshControl.isRefreshing) {
+        return self.originalInset;
+    }
+    return contentInset;
 }
 
 #pragma mark - Setters
