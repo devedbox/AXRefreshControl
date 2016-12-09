@@ -79,6 +79,8 @@ static NSTimeInterval const kAXRefreshAnimationDuration = 0.40;
 @interface UIScrollView ()
 /// Original content inset.
 @property(assign, nonatomic) UIEdgeInsets originalInset;
+/// Content inset setting from internal.
+@property(assign, nonatomic) BOOL contentInsetSettingFromInternal;
 /// Is ending animating.
 @property(assign, nonatomic, getter=isAnimatingContentInset) BOOL animatingContentInset;
 @end

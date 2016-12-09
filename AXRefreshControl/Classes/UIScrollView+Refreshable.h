@@ -25,7 +25,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AXRefreshControl.h"
-
+NS_ASSUME_NONNULL_BEGIN
 @interface UIScrollView (Refreshable)
 /// Refresh control.
 @property(readonly, nonatomic) AXRefreshControl *ax_refreshControl;
@@ -36,3 +36,4 @@
 /// End refreshing and reset the content inset and offset.
 - (void)endRefreshing;
 @end
+NS_ASSUME_NONNULL_END

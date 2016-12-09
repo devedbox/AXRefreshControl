@@ -8,6 +8,7 @@
 
 #import "ScrollViewController.h"
 #import "UIScrollView+Refreshable.h"
+#import "AXRefreshControl_Private.h"
 
 @interface ScrollViewController ()<UIScrollViewDelegate>
 /// Scroll view.
@@ -33,6 +34,7 @@
     
     [_scrollView.ax_refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [_scrollView.ax_refreshControl beginRefreshing];
+    [_scrollView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
 //
     _scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
     
@@ -41,6 +43,7 @@
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [_scrollView ax_setContentOffset:CGPointMake(0, -64) animated:YES];
 //    });
+//    [_scrollView setContentInsetSettingFromInternal:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,7 +56,6 @@
         NSLog(@"Begin refreshing");
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [refreshControl endRefreshing];
-            
         });
     } else {
         NSLog(@"End refreshing");
@@ -66,6 +68,10 @@
 //}
 
 //- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+//    NSLog(@"%s", __FUNCTION__);
+//}
+//
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
 //    NSLog(@"%s", __FUNCTION__);
 //}
 @end

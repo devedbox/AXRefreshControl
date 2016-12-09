@@ -62,6 +62,8 @@
 
 - (void)initializer {
     [self addSubview:self.refreshIndicator];
+    // Set default values.
+    _soundInteractive = YES;
 }
 
 #pragma mark - Override
@@ -102,23 +104,29 @@
 
 #pragma mark - Public
 - (void)beginRefreshing {
+    // Begin refresh indicator animation.
     [self.refreshIndicator beginAnimating];
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
     // Scroll view begin refreshing.
-    [_scrollView beginRefreshing];
+    if (_scrollView) [_scrollView beginRefreshing];
+    // Send actions to targets.
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
 - (void)endRefreshing {
+    // If scroll view is dragging, set state to Pending and handle the Pending state.
     if (_scrollView.isDragging) {
         [self setRefreshState:AXRefreshControlStatePending];
         [self handlePendingStateWithContentOffset:CGPointMake(0, _scrollView.contentOffset.y + _scrollView.contentInset.top)];
-        return;
+    } else {
+        // End refreshing animation.
+        [self.refreshIndicator endAniamting];
+        // Set state of refresh control to reached.
+        [self setRefreshState:AXRefreshControlStateReached];
+        // Scroll view end refreshing.
+        if (_scrollView) [_scrollView endRefreshing];
+        // Send actions to targets.
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
     }
-    [self.refreshIndicator endAniamting];
-    [self setRefreshState:AXRefreshControlStateReached];
-    // Scroll view end refreshing.
-    [_scrollView endRefreshing];
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
 - (void)handleScrollViewDidScroll:(UIScrollView *)scrollView {// Any offset changed.
@@ -127,9 +135,10 @@
     
     // Add the refresh control to scroll view.
     if (!self.superview) {
-        [_scrollView insertSubview:self atIndex:0];
+        if (_scrollView) [_scrollView insertSubview:self atIndex:0];
     }
     [self setHidden:NO];
+
     // Update the frame of refresh control.
     [self setFrame:CGRectMake(0, MIN(contentOffset.y, 0), CGRectGetWidth(_scrollView.frame), MAX(-contentOffset.y, kAXRefreshControlHeight))];
     
@@ -172,8 +181,6 @@
 }
 
 - (void)handleScrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    if (_refreshState == AXRefreshControlStateNormal) _scrollView.originalInset = _scrollView.contentInset;
-    
     CGPoint contentOffset = scrollView.contentOffset;
     contentOffset.y+=_scrollView.originalInset.top;
     
@@ -198,21 +205,24 @@
     
     if (_refreshState == AXRefreshControlStatePending) {
         if (-scrollView.contentOffset.y >= kAXRefreshControlHeight) return;
-        [_scrollView endRefreshing];
+        if (_scrollView) [_scrollView endRefreshing];
         [self.refreshIndicator endAniamting];
         [self setRefreshState:AXRefreshControlStateNormal];
     }
     
     if (contentOffset.y >= 0) {
         [self setRefreshState:AXRefreshControlStateNormal];
+        [self handleNormalStateWithContentOffset:contentOffset];
     } else if (-contentOffset.y < kAXRefreshControlHeight) {
         [self setRefreshState:AXRefreshControlStateTransiting];
+        [self handleTransitingStateWithContentOffset:contentOffset];
     } else {
         [self setRefreshState:AXRefreshControlStateReleased];
+        [self handleReleasedStateWithContentOffset:contentOffset];
         // Play reached sound.
         NSTimeInterval timeinterval = [[NSDate date] timeIntervalSinceDate:_reachedDate];
         if (timeinterval < 0.25) return;
-        [self playSound:@"AXRefreshControl.bundle/sound_refreshing"];
+        if (_soundInteractive) [self playSound:@"AXRefreshControl.bundle/sound_refreshing"];
     }
 }
 
@@ -224,7 +234,7 @@
     if (_refreshState == AXRefreshControlStateRefreshing) return;
     
     if (_refreshState == AXRefreshControlStatePending) {
-        [_scrollView endRefreshing];
+        if (_scrollView) [_scrollView endRefreshing];
         [self.refreshIndicator endAniamting];
         [self setRefreshState:AXRefreshControlStateTransiting];
         return;
@@ -255,7 +265,7 @@
     // Play reached sound.
     if (_scrollView.isDragging) {
         _reachedDate = [NSDate date];
-        [self playSound:@"AXRefreshControl.bundle/sound_reached"];
+        if (_soundInteractive) [self playSound:@"AXRefreshControl.bundle/sound_reached"];
     }
     [self.refreshIndicator handleRefreshControlStateChanged:AXRefreshControlStateReached transition:-contentOffset.y];
 }

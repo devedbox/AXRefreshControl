@@ -24,7 +24,8 @@
 //  SOFTWARE.
 
 #import <UIKit/UIKit.h>
-
+NS_ASSUME_NONNULL_BEGIN
+NS_ENUM_AVAILABLE_IOS(8_0)
 typedef NS_ENUM(int64_t, AXRefreshControlState) {
     /// State normal. Offset plus original inset more than or equal to zero.
     AXRefreshControlStateNormal,
@@ -39,16 +40,17 @@ typedef NS_ENUM(int64_t, AXRefreshControlState) {
     /// State pending.
     AXRefreshControlStatePending
 };
-
+NS_CLASS_AVAILABLE_IOS(8_0)
 @interface AXRefreshControl : UIControl
-
 /// State of refresh control.
 @property(assign, nonatomic) AXRefreshControlState refreshState;
-
+/// Sound interavtive. Default is YES.
+@property(assign, nonatomic) BOOL soundInteractive;
+/// Refresh control is refreshing.
 @property(nonatomic, readonly, getter=isRefreshing) BOOL refreshing;
-
 // May be used to indicate to the refreshControl that an external event has initiated the refresh action
-- (void)beginRefreshing NS_AVAILABLE_IOS(7_0);
+- (void)beginRefreshing NS_AVAILABLE_IOS(8_0);
 // Must be explicitly called when the refreshing has completed
-- (void)endRefreshing NS_AVAILABLE_IOS(7_0);
+- (void)endRefreshing NS_AVAILABLE_IOS(8_0);
 @end
+NS_ASSUME_NONNULL_END
