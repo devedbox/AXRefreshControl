@@ -44,13 +44,13 @@ NS_CLASS_AVAILABLE_IOS(8_0)
 @interface AXRefreshControl : UIControl
 /// State of refresh control.
 @property(assign, nonatomic) AXRefreshControlState refreshState;
-/// Sound interavtive. Default is YES.
+/// Sound interavtive. Default is NO.
 @property(assign, nonatomic) BOOL soundInteractive;
 /// Refresh control is refreshing.
 @property(nonatomic, readonly, getter=isRefreshing) BOOL refreshing;
 // May be used to indicate to the refreshControl that an external event has initiated the refresh action
-- (void)beginRefreshing NS_AVAILABLE_IOS(8_0);
+- (void)beginRefreshing;
 // Must be explicitly called when the refreshing has completed
-- (void)endRefreshing NS_AVAILABLE_IOS(8_0);
+- (void)endRefreshing;
 @end
 NS_ASSUME_NONNULL_END

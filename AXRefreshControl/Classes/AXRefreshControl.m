@@ -63,7 +63,7 @@
 - (void)initializer {
     [self addSubview:self.refreshIndicator];
     // Set default values.
-    _soundInteractive = YES;
+    _soundInteractive = NO;
 }
 
 #pragma mark - Override
@@ -316,16 +316,7 @@
 #pragma mark - Initializer
 - (void)initializer {
     [super initializer];
-    _rotateDuration = 1.6;
-}
-#pragma mark - Override
-- (void)drawComponents {
-    // Get the 12 components of the bounds.
-    CGFloat angle = M_PI*2/12;
-    CGContextRef cxt = UIGraphicsGetCurrentContext();
-    UIColor *tintColor = self.tintColor?:[UIColor blackColor];
-    // Draw all the possilbe line using the proper tint color.
-    for (int64_t i = self.animatedColorIndex; i < self.animatedColorIndex+self.drawingComponents; i++) [self drawLineWithAngle:angle*i+_rotateOffset-M_PI_2 context:cxt tintColor:self.animating&&!_neededEndAnimating?[tintColor colorWithAlphaComponent:((float)i-(float)self.animatedColorIndex)/12.0]:tintColor];
+    _rotateDuration = 0.6;
 }
 #pragma mark - Delegate
 - (void)handleRefreshControlStateChanged:(AXRefreshControlState)state transition:(CGFloat)transition {
@@ -373,7 +364,7 @@
 #pragma mark - Setters
 - (void)setRotateOffset:(CGFloat)rotateOffset {
     _rotateOffset = rotateOffset;
-    [self setNeedsDisplay];
+    self.angleOffset = _rotateOffset;
 }
 
 - (void)setRotating:(BOOL)rotating {
@@ -393,43 +384,32 @@
 }
 
 - (void)beginAnimating {
-    if (self.drawingComponents != 12) {
-        self.drawingComponents = 12;
-    }
+    if (self.drawingComponents != 12) self.drawingComponents = 12;
     // Begin with a scale aimation.
     CAKeyframeAnimation *scale1 = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
     scale1.values = @[@(1.0), @(1.4), @(1.0)];
     scale1.removedOnCompletion = YES;
     scale1.fillMode = kCAFillModeForwards;
-    scale1.duration = kAXRefreshAnimationDuration;
+    scale1.duration = kAXRefreshAnimationDuration/2;
     [self.layer addAnimation:scale1 forKey:@"transform.scale"];
     // Begin rotate.
     [self rotateWithRepeat:1 reverse:NO duration:_rotateDuration];
     [self setAnimating:YES];
+    [self setShouldGradientColorIndex:YES];
 }
 
 - (void)endAniamting {
     [self setRotating:NO];
     [self setAnimating:NO];
-    if (self.displayLink) {
-        [self.displayLink invalidate];
-        self.displayLink = nil;
-    }
-    // Reset the state of control.
-    self.animatedColorIndex = 0;
     _rotateOffset = 0.0;
     _neededEndAnimating = NO;
-    [self setNeedsDisplay];
+    [self setShouldGradientColorIndex:YES];
     [self rotateWithRepeat:1 reverse:YES duration:_rotateDuration];
 }
 
 - (void)setNeedsEndAnimating {
     _neededEndAnimating = YES;
-    if (self.displayLink) {
-        [self.displayLink invalidate];
-        self.displayLink = nil;
-        [self setNeedsDisplay];
-    }
+    [self setShouldGradientColorIndex:NO];
     [self rotateWithRepeat:0 reverse:YES duration:_rotateDuration*2];
 }
 
@@ -442,10 +422,10 @@
 
 - (CABasicAnimation *)rotateAnimationWithRepeat:(float)repeat reverse:(BOOL)reverse duration:(NSTimeInterval)duration {
     CABasicAnimation *rotating = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-    rotating.toValue = @(reverse?-M_PI*2:M_PI*2);
+    rotating.toValue = @(reverse?-M_PI:M_PI);
     rotating.duration = duration;
     [rotating setFillMode:kCAFillModeForwards];
-    rotating.removedOnCompletion = YES;
+    rotating.removedOnCompletion = NO;
     if (repeat == 0) {
         rotating.repeatCount = CGFLOAT_MAX;
     } else {
