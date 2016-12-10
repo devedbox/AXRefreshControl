@@ -7,32 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		120E3363F1AF9220470EC49A8ABF041E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
-		21DD146D76418D6A10407B4D153AC9AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		27AB219C2865010C9FD525C2E293B620 /* AXIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AA8899C67A3F604B96445672A85F761 /* AXIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		29B5A2DCFCF408026C4805A9D57D4230 /* AXBreachedAnnulusIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7297F96EB880E3971AE952460FEC2328 /* AXBreachedAnnulusIndicatorView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		39EEE0CE77CCF97D83E3D90E639A911C /* AXIndicatorView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0EFB46C78CA722A63097544EBE55D /* AXIndicatorView-dummy.m */; };
-		5BC811BBC22CB55A5ACA3F223E13BBF0 /* AXActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A01EE949D277815C73A7C2423D924D76 /* AXActivityIndicatorView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5F917B4FA9907122C0D76CF4DD5477BF /* AXBreachedAnnulusIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37871A0A9D739F5037EA196AC5194987 /* AXBreachedAnnulusIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		70595491E1A024877DE28EE2C7DB41EF /* Pods-AXRefreshControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 304885A1246254F8A90AA591DEE97A01 /* Pods-AXRefreshControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D3D9AFD8CAB9156EF932B78B7E0454EA /* AXActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A3DE16FA1BDFE547B5CB20D5E9CF698 /* AXActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D687394CFC5551106102646D0688EB53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		F754C0108ECD803CDE8562D225FA1B79 /* AXIndicatorView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A770859F9F061EE3A477A38F5520AB78 /* AXIndicatorView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FA1C26FCAD8905EFE4C4EA12C23DE2B3 /* Pods-AXRefreshControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23998B93865784E5385947113A444788 /* Pods-AXRefreshControl-dummy.m */; };
+		1BA27AF1ECFAEF956763712E7592EDE7 /* AXIndicatorView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0EFB46C78CA722A63097544EBE55D /* AXIndicatorView-dummy.m */; };
+		1E29CF598662FCC28AC15004E4AE7417 /* AXBreachedAnnulusIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7297F96EB880E3971AE952460FEC2328 /* AXBreachedAnnulusIndicatorView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		41E6EECEEF30B1BA1BB1640EE160CC2C /* Pods-AXRefreshControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23998B93865784E5385947113A444788 /* Pods-AXRefreshControl-dummy.m */; };
+		42948D4119B40399F0848718D5D91972 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		74E332E8617CE155B1C49AB3E69C2852 /* AXBreachedAnnulusIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37871A0A9D739F5037EA196AC5194987 /* AXBreachedAnnulusIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74F5F7707AF667FB1CB8466A253C6290 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */; };
+		780A58E44F1F0643384D785162D831AA /* Pods-AXRefreshControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 304885A1246254F8A90AA591DEE97A01 /* Pods-AXRefreshControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0BE8127EF9996946C9E75B9B7E56092 /* AXActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A01EE949D277815C73A7C2423D924D76 /* AXActivityIndicatorView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B3A88C7EA16CA02ABC00DF0AA2693FB4 /* AXIndicatorView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A770859F9F061EE3A477A38F5520AB78 /* AXIndicatorView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54171481437780033840C9EAEC129A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		D8ED6D504C9047B9C7F6F4B4EC7972AC /* AXIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AA8899C67A3F604B96445672A85F761 /* AXIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC6594199442110F8DE047BE4F2F1A97 /* AXActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A3DE16FA1BDFE547B5CB20D5E9CF698 /* AXActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8A1156FE075073CD5F3ABAE78E5F7323 /* PBXContainerItemProxy */ = {
+		3A9E204847E1BA2BCCFFD47624E17B94 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F0C65F43A7359F9E3A4FA89AD28B986A;
+			remoteGlobalIDString = 6434C95075ED62D696B56D09F670C07C;
 			remoteInfo = AXIndicatorView;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0DF6A2B313675A3EEF3D69963C73D04E /* Pods-AXRefreshControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AXRefreshControl.modulemap"; sourceTree = "<group>"; };
+		0DF6A2B313675A3EEF3D69963C73D04E /* Pods-AXRefreshControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AXRefreshControl.modulemap"; sourceTree = "<group>"; };
 		1CDC88D12EBF85D89E3D290A6D4CA06C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23998B93865784E5385947113A444788 /* Pods-AXRefreshControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AXRefreshControl-dummy.m"; sourceTree = "<group>"; };
 		2AA8899C67A3F604B96445672A85F761 /* AXIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXIndicatorView.h; path = AXIndicatorView/Classes/AXIndicatorView.h; sourceTree = "<group>"; };
@@ -41,40 +41,40 @@
 		3BD0EFB46C78CA722A63097544EBE55D /* AXIndicatorView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AXIndicatorView-dummy.m"; sourceTree = "<group>"; };
 		5AEB2C7F73A4CD4C664834176207871A /* Pods-AXRefreshControl-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AXRefreshControl-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5DCD22C237802037708AC1367D9BF483 /* Pods-AXRefreshControl-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AXRefreshControl-acknowledgements.plist"; sourceTree = "<group>"; };
+		616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6FEA08EF9D41BE5D0168012FFD9269BD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7297F96EB880E3971AE952460FEC2328 /* AXBreachedAnnulusIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXBreachedAnnulusIndicatorView.m; path = AXIndicatorView/Classes/AXBreachedAnnulusIndicatorView.m; sourceTree = "<group>"; };
 		7801C07DF5F51BA81BC8943F680BD589 /* Pods-AXRefreshControl-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AXRefreshControl-resources.sh"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		990DD610E820992F0A03CB02FB93EAAC /* AXIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AXIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		990DD610E820992F0A03CB02FB93EAAC /* AXIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AXIndicatorView.framework; path = AXIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3DE16FA1BDFE547B5CB20D5E9CF698 /* AXActivityIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXActivityIndicatorView.h; path = AXIndicatorView/Classes/AXActivityIndicatorView.h; sourceTree = "<group>"; };
 		A01EE949D277815C73A7C2423D924D76 /* AXActivityIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXActivityIndicatorView.m; path = AXIndicatorView/Classes/AXActivityIndicatorView.m; sourceTree = "<group>"; };
 		A1ECE7204BA263A1D8EBFB15883C039F /* Pods-AXRefreshControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AXRefreshControl.release.xcconfig"; sourceTree = "<group>"; };
-		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		A770859F9F061EE3A477A38F5520AB78 /* AXIndicatorView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AXIndicatorView-umbrella.h"; sourceTree = "<group>"; };
 		A9F87794E19C91B31DE57B907FF88368 /* AXIndicatorView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AXIndicatorView-prefix.pch"; sourceTree = "<group>"; };
-		D0E64A223A3F4AE0815D7A4700FDCDD4 /* AXIndicatorView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AXIndicatorView.modulemap; sourceTree = "<group>"; };
+		D0E64A223A3F4AE0815D7A4700FDCDD4 /* AXIndicatorView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AXIndicatorView.modulemap; sourceTree = "<group>"; };
 		D5AE24050E5C5BDE7824CACE1E0BA7F0 /* Pods-AXRefreshControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AXRefreshControl.debug.xcconfig"; sourceTree = "<group>"; };
 		D8F427E52424CF5A0C2DCFD3CF827EAD /* AXIndicatorView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AXIndicatorView.xcconfig; sourceTree = "<group>"; };
-		E15F2E2D02F0E83B7D300EE1B342DE32 /* Pods_AXRefreshControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AXRefreshControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		E15F2E2D02F0E83B7D300EE1B342DE32 /* Pods_AXRefreshControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AXRefreshControl.framework; path = "Pods-AXRefreshControl.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C6630C4390707D8E2B7D30B7B57789 /* Pods-AXRefreshControl-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AXRefreshControl-frameworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6A402A4B0AF58F8CEDFDBB605B5B08FC /* Frameworks */ = {
+		29EC4E02411328E90E808311F1A91A2C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21DD146D76418D6A10407B4D153AC9AF /* Foundation.framework in Frameworks */,
-				120E3363F1AF9220470EC49A8ABF041E /* UIKit.framework in Frameworks */,
+				42948D4119B40399F0848718D5D91972 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75B99817C6E9BC176BC5DCFDAB32A7E6 /* Frameworks */ = {
+		4BEACC9D10DB52B2C2F2A53E4DCAD7CA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D687394CFC5551106102646D0688EB53 /* Foundation.framework in Frameworks */,
+				C54171481437780033840C9EAEC129A4 /* Foundation.framework in Frameworks */,
+				74F5F7707AF667FB1CB8466A253C6290 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +107,7 @@
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */,
+				E6EE98446B568159EE277B68FD442AF0 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,14 +167,15 @@
 				2AA8899C67A3F604B96445672A85F761 /* AXIndicatorView.h */,
 				1748F9724EB1BED97ABE829AC0B500AD /* Support Files */,
 			);
+			name = AXIndicatorView;
 			path = AXIndicatorView;
 			sourceTree = "<group>";
 		};
-		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
+		E6EE98446B568159EE277B68FD442AF0 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */,
-				E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */,
+				616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */,
+				7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -182,53 +183,35 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		471D6D089CD287A9449088CDCC59FA55 /* Headers */ = {
+		2C654C3E47FB1A1F67938371317E5531 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70595491E1A024877DE28EE2C7DB41EF /* Pods-AXRefreshControl-umbrella.h in Headers */,
+				DC6594199442110F8DE047BE4F2F1A97 /* AXActivityIndicatorView.h in Headers */,
+				74E332E8617CE155B1C49AB3E69C2852 /* AXBreachedAnnulusIndicatorView.h in Headers */,
+				B3A88C7EA16CA02ABC00DF0AA2693FB4 /* AXIndicatorView-umbrella.h in Headers */,
+				D8ED6D504C9047B9C7F6F4B4EC7972AC /* AXIndicatorView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B89BDFC22B8F10123118E516E7DDA371 /* Headers */ = {
+		E7D435812171A04561EAAAE599C5AED6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3D9AFD8CAB9156EF932B78B7E0454EA /* AXActivityIndicatorView.h in Headers */,
-				5F917B4FA9907122C0D76CF4DD5477BF /* AXBreachedAnnulusIndicatorView.h in Headers */,
-				F754C0108ECD803CDE8562D225FA1B79 /* AXIndicatorView-umbrella.h in Headers */,
-				27AB219C2865010C9FD525C2E293B620 /* AXIndicatorView.h in Headers */,
+				780A58E44F1F0643384D785162D831AA /* Pods-AXRefreshControl-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		50EFE2161BBAF62CF4DCFA4D06896E44 /* Pods-AXRefreshControl */ = {
+		6434C95075ED62D696B56D09F670C07C /* AXIndicatorView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 38CE6C09EEFA9527966E4D8B74776D48 /* Build configuration list for PBXNativeTarget "Pods-AXRefreshControl" */;
+			buildConfigurationList = 138CC2DD73590F5D6704F506C9CC40EA /* Build configuration list for PBXNativeTarget "AXIndicatorView" */;
 			buildPhases = (
-				0072E8FCE90A77557237EE3B2FA3DA27 /* Sources */,
-				75B99817C6E9BC176BC5DCFDAB32A7E6 /* Frameworks */,
-				471D6D089CD287A9449088CDCC59FA55 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AF49F5326C5D42880AE53514D6862051 /* PBXTargetDependency */,
-			);
-			name = "Pods-AXRefreshControl";
-			productName = "Pods-AXRefreshControl";
-			productReference = E15F2E2D02F0E83B7D300EE1B342DE32 /* Pods_AXRefreshControl.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		F0C65F43A7359F9E3A4FA89AD28B986A /* AXIndicatorView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EC23D50C5A4E03550B011264BCC93362 /* Build configuration list for PBXNativeTarget "AXIndicatorView" */;
-			buildPhases = (
-				65AF2917B445FCB95F5F848B5CCC536B /* Sources */,
-				6A402A4B0AF58F8CEDFDBB605B5B08FC /* Frameworks */,
-				B89BDFC22B8F10123118E516E7DDA371 /* Headers */,
+				25721862877B8D8FCAAC9984651F804A /* Sources */,
+				4BEACC9D10DB52B2C2F2A53E4DCAD7CA /* Frameworks */,
+				2C654C3E47FB1A1F67938371317E5531 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -237,6 +220,24 @@
 			name = AXIndicatorView;
 			productName = AXIndicatorView;
 			productReference = 990DD610E820992F0A03CB02FB93EAAC /* AXIndicatorView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A17F5C45C90CE5B648EC99917807C5E1 /* Pods-AXRefreshControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9E881ACBC21C675D5A642385F8943FC /* Build configuration list for PBXNativeTarget "Pods-AXRefreshControl" */;
+			buildPhases = (
+				F77955499CDAFD5014D50C922338E3A6 /* Sources */,
+				29EC4E02411328E90E808311F1A91A2C /* Frameworks */,
+				E7D435812171A04561EAAAE599C5AED6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5771FDB839E26FFCC5F2B771175F05A0 /* PBXTargetDependency */,
+			);
+			name = "Pods-AXRefreshControl";
+			productName = "Pods-AXRefreshControl";
+			productReference = E15F2E2D02F0E83B7D300EE1B342DE32 /* Pods_AXRefreshControl.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -260,43 +261,109 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F0C65F43A7359F9E3A4FA89AD28B986A /* AXIndicatorView */,
-				50EFE2161BBAF62CF4DCFA4D06896E44 /* Pods-AXRefreshControl */,
+				6434C95075ED62D696B56D09F670C07C /* AXIndicatorView */,
+				A17F5C45C90CE5B648EC99917807C5E1 /* Pods-AXRefreshControl */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0072E8FCE90A77557237EE3B2FA3DA27 /* Sources */ = {
+		25721862877B8D8FCAAC9984651F804A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA1C26FCAD8905EFE4C4EA12C23DE2B3 /* Pods-AXRefreshControl-dummy.m in Sources */,
+				A0BE8127EF9996946C9E75B9B7E56092 /* AXActivityIndicatorView.m in Sources */,
+				1E29CF598662FCC28AC15004E4AE7417 /* AXBreachedAnnulusIndicatorView.m in Sources */,
+				1BA27AF1ECFAEF956763712E7592EDE7 /* AXIndicatorView-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		65AF2917B445FCB95F5F848B5CCC536B /* Sources */ = {
+		F77955499CDAFD5014D50C922338E3A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC811BBC22CB55A5ACA3F223E13BBF0 /* AXActivityIndicatorView.m in Sources */,
-				29B5A2DCFCF408026C4805A9D57D4230 /* AXBreachedAnnulusIndicatorView.m in Sources */,
-				39EEE0CE77CCF97D83E3D90E639A911C /* AXIndicatorView-dummy.m in Sources */,
+				41E6EECEEF30B1BA1BB1640EE160CC2C /* Pods-AXRefreshControl-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AF49F5326C5D42880AE53514D6862051 /* PBXTargetDependency */ = {
+		5771FDB839E26FFCC5F2B771175F05A0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AXIndicatorView;
-			target = F0C65F43A7359F9E3A4FA89AD28B986A /* AXIndicatorView */;
-			targetProxy = 8A1156FE075073CD5F3ABAE78E5F7323 /* PBXContainerItemProxy */;
+			target = 6434C95075ED62D696B56D09F670C07C /* AXIndicatorView */;
+			targetProxy = 3A9E204847E1BA2BCCFFD47624E17B94 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		011C34F7D895E025AF85318F9F6699BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5AE24050E5C5BDE7824CACE1E0BA7F0 /* Pods-AXRefreshControl.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AXRefreshControl/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AXRefreshControl/Pods-AXRefreshControl.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AXRefreshControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		29C0D86C2D7EFB7F90AB51781F90B1F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8F427E52424CF5A0C2DCFD3CF827EAD /* AXIndicatorView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AXIndicatorView/AXIndicatorView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AXIndicatorView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AXIndicatorView/AXIndicatorView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = AXIndicatorView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		79B0C2E66EFA9917ED6EDDB8FC6A7684 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -337,73 +404,7 @@
 			};
 			name = Release;
 		};
-		806AE26656D6A8AC6F821B9A6E27C67C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8F427E52424CF5A0C2DCFD3CF827EAD /* AXIndicatorView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AXIndicatorView/AXIndicatorView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AXIndicatorView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/AXIndicatorView/AXIndicatorView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = AXIndicatorView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		AA0FE1B06661F9FB4389B71AB6D9C208 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5AE24050E5C5BDE7824CACE1E0BA7F0 /* Pods-AXRefreshControl.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-AXRefreshControl/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AXRefreshControl/Pods-AXRefreshControl.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_AXRefreshControl;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		C697F49286DD1BA18A3A0FFC47FAA484 /* Release */ = {
+		9D8B53A7E6463521E73EC10BF1ED9A8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D8F427E52424CF5A0C2DCFD3CF827EAD /* AXIndicatorView.xcconfig */;
 			buildSettings = {
@@ -426,6 +427,41 @@
 				MODULEMAP_FILE = "Target Support Files/AXIndicatorView/AXIndicatorView.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = AXIndicatorView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9E9632156023FC5BF87677D8E85CED5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1ECE7204BA263A1D8EBFB15883C039F /* Pods-AXRefreshControl.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AXRefreshControl/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AXRefreshControl/Pods-AXRefreshControl.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AXRefreshControl;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -478,44 +514,18 @@
 			};
 			name = Debug;
 		};
-		EAA4BF3ECDA19DB2E617650A6C2922CB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1ECE7204BA263A1D8EBFB15883C039F /* Pods-AXRefreshControl.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-AXRefreshControl/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AXRefreshControl/Pods-AXRefreshControl.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_AXRefreshControl;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		138CC2DD73590F5D6704F506C9CC40EA /* Build configuration list for PBXNativeTarget "AXIndicatorView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29C0D86C2D7EFB7F90AB51781F90B1F3 /* Debug */,
+				9D8B53A7E6463521E73EC10BF1ED9A8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -525,20 +535,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		38CE6C09EEFA9527966E4D8B74776D48 /* Build configuration list for PBXNativeTarget "Pods-AXRefreshControl" */ = {
+		D9E881ACBC21C675D5A642385F8943FC /* Build configuration list for PBXNativeTarget "Pods-AXRefreshControl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA0FE1B06661F9FB4389B71AB6D9C208 /* Debug */,
-				EAA4BF3ECDA19DB2E617650A6C2922CB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EC23D50C5A4E03550B011264BCC93362 /* Build configuration list for PBXNativeTarget "AXIndicatorView" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				806AE26656D6A8AC6F821B9A6E27C67C /* Debug */,
-				C697F49286DD1BA18A3A0FFC47FAA484 /* Release */,
+				011C34F7D895E025AF85318F9F6699BF /* Debug */,
+				9E9632156023FC5BF87677D8E85CED5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

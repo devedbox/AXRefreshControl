@@ -221,7 +221,7 @@
         [self handleReleasedStateWithContentOffset:contentOffset];
         // Play reached sound.
         NSTimeInterval timeinterval = [[NSDate date] timeIntervalSinceDate:_reachedDate];
-        if (timeinterval < 0.25) return;
+        if (timeinterval < 0.1) return;
         if (_soundInteractive) [self playSound:@"AXRefreshControl.bundle/sound_refreshing"];
     }
 }
