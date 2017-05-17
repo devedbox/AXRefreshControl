@@ -317,6 +317,8 @@
 - (void)initializer {
     [super initializer];
     _rotateDuration = 0.6;
+    self.lineWidth = 2.0;
+    self.shouldGradientColorIndex = NO;
 }
 #pragma mark - Delegate
 - (void)handleRefreshControlStateChanged:(AXRefreshControlState)state transition:(CGFloat)transition {
