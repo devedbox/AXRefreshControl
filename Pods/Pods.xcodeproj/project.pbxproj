@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1BA27AF1ECFAEF956763712E7592EDE7 /* AXIndicatorView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0EFB46C78CA722A63097544EBE55D /* AXIndicatorView-dummy.m */; };
-		1E29CF598662FCC28AC15004E4AE7417 /* AXBreachedAnnulusIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7297F96EB880E3971AE952460FEC2328 /* AXBreachedAnnulusIndicatorView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		168A20E924481C3CF28ECAB3E5D92474 /* AXBreachedAnnulusIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B40A6B05C0F138749259E3859615C8E /* AXBreachedAnnulusIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16E6D29B1FFA40760ACBFF02604BA458 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */; };
+		27B332B23FD7D4EC4636AE39C26F6C04 /* AXBreachedAnnulusIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A2A1B0674223E35AF8ECA4D9844AA3 /* AXBreachedAnnulusIndicatorView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3C1C4A04779E2F1A16AD71582017DF9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		3EFAFEAA4F0D9F731DC79C5FEF359F02 /* AXIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E819419FBB9F4AE52494C9FF41C013A /* AXIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		41E6EECEEF30B1BA1BB1640EE160CC2C /* Pods-AXRefreshControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23998B93865784E5385947113A444788 /* Pods-AXRefreshControl-dummy.m */; };
 		42948D4119B40399F0848718D5D91972 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
-		74E332E8617CE155B1C49AB3E69C2852 /* AXBreachedAnnulusIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37871A0A9D739F5037EA196AC5194987 /* AXBreachedAnnulusIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		74F5F7707AF667FB1CB8466A253C6290 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */; };
+		4AF26DC8497DDE93AD0DD1E5B30EC848 /* AXIndicatorView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1B43FF0C1D75CF12A3914BBC193A7A38 /* AXIndicatorView.bundle */; };
+		4C207F258FEA7023D730020E268317D3 /* AXActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7590D3EC137B6883665E180771094BBB /* AXActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D3B59B7F5DD9FB270A0F54F8EEC0957 /* AXSpinningWaitCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 362907C0A5621B8871791DABE15B0B20 /* AXSpinningWaitCursor.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		780A58E44F1F0643384D785162D831AA /* Pods-AXRefreshControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 304885A1246254F8A90AA591DEE97A01 /* Pods-AXRefreshControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A0BE8127EF9996946C9E75B9B7E56092 /* AXActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A01EE949D277815C73A7C2423D924D76 /* AXActivityIndicatorView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B3A88C7EA16CA02ABC00DF0AA2693FB4 /* AXIndicatorView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A770859F9F061EE3A477A38F5520AB78 /* AXIndicatorView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C54171481437780033840C9EAEC129A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
-		D8ED6D504C9047B9C7F6F4B4EC7972AC /* AXIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AA8899C67A3F604B96445672A85F761 /* AXIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC6594199442110F8DE047BE4F2F1A97 /* AXActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A3DE16FA1BDFE547B5CB20D5E9CF698 /* AXActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		798554DC826CDA8FFF2668C7D3DB5DD6 /* AXSpinningWaitCursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A955C5D3E6B1381E16C84928AAF7134 /* AXSpinningWaitCursor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD6147E479AFBE14EB72A29C17ED1E70 /* AXActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97C3019CFE82E924E89BFCAECBEA981 /* AXActivityIndicatorView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D28BABE5C4AB44EB6CEBD17416AF9A72 /* AXIndicatorView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F1897B59F7BBC2FCD3BD3A85568BE805 /* AXIndicatorView-dummy.m */; };
+		DA43390B4E8E0C637A640EA3C95F6622 /* AXIndicatorView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E677DD68DE4A4922230A50620A8C82C8 /* AXIndicatorView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,37 +29,40 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6434C95075ED62D696B56D09F670C07C;
+			remoteGlobalIDString = 060186B6B426DB3FDC91A01203682CB1;
 			remoteInfo = AXIndicatorView;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B40A6B05C0F138749259E3859615C8E /* AXBreachedAnnulusIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXBreachedAnnulusIndicatorView.h; path = AXIndicatorView/Classes/AXBreachedAnnulusIndicatorView.h; sourceTree = "<group>"; };
 		0DF6A2B313675A3EEF3D69963C73D04E /* Pods-AXRefreshControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AXRefreshControl.modulemap"; sourceTree = "<group>"; };
-		1CDC88D12EBF85D89E3D290A6D4CA06C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B43FF0C1D75CF12A3914BBC193A7A38 /* AXIndicatorView.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = AXIndicatorView.bundle; path = AXIndicatorView/Classes/AXIndicatorView.bundle; sourceTree = "<group>"; };
 		23998B93865784E5385947113A444788 /* Pods-AXRefreshControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AXRefreshControl-dummy.m"; sourceTree = "<group>"; };
-		2AA8899C67A3F604B96445672A85F761 /* AXIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXIndicatorView.h; path = AXIndicatorView/Classes/AXIndicatorView.h; sourceTree = "<group>"; };
+		27A2A1B0674223E35AF8ECA4D9844AA3 /* AXBreachedAnnulusIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXBreachedAnnulusIndicatorView.m; path = AXIndicatorView/Classes/AXBreachedAnnulusIndicatorView.m; sourceTree = "<group>"; };
 		304885A1246254F8A90AA591DEE97A01 /* Pods-AXRefreshControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AXRefreshControl-umbrella.h"; sourceTree = "<group>"; };
-		37871A0A9D739F5037EA196AC5194987 /* AXBreachedAnnulusIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXBreachedAnnulusIndicatorView.h; path = AXIndicatorView/Classes/AXBreachedAnnulusIndicatorView.h; sourceTree = "<group>"; };
-		3BD0EFB46C78CA722A63097544EBE55D /* AXIndicatorView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AXIndicatorView-dummy.m"; sourceTree = "<group>"; };
+		362907C0A5621B8871791DABE15B0B20 /* AXSpinningWaitCursor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXSpinningWaitCursor.m; path = AXIndicatorView/Classes/AXSpinningWaitCursor.m; sourceTree = "<group>"; };
+		438CBA9261A25AC130C37ABB6A72CABA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A955C5D3E6B1381E16C84928AAF7134 /* AXSpinningWaitCursor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXSpinningWaitCursor.h; path = AXIndicatorView/Classes/AXSpinningWaitCursor.h; sourceTree = "<group>"; };
 		5AEB2C7F73A4CD4C664834176207871A /* Pods-AXRefreshControl-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AXRefreshControl-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5DCD22C237802037708AC1367D9BF483 /* Pods-AXRefreshControl-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AXRefreshControl-acknowledgements.plist"; sourceTree = "<group>"; };
+		60811EB7DA1FBF3B511161BEA58F2E6D /* AXIndicatorView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AXIndicatorView.xcconfig; sourceTree = "<group>"; };
 		616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		68554CC9E443702F350D7B8EDA4E93EA /* AXIndicatorView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AXIndicatorView-prefix.pch"; sourceTree = "<group>"; };
 		6FEA08EF9D41BE5D0168012FFD9269BD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7297F96EB880E3971AE952460FEC2328 /* AXBreachedAnnulusIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXBreachedAnnulusIndicatorView.m; path = AXIndicatorView/Classes/AXBreachedAnnulusIndicatorView.m; sourceTree = "<group>"; };
+		7590D3EC137B6883665E180771094BBB /* AXActivityIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXActivityIndicatorView.h; path = AXIndicatorView/Classes/AXActivityIndicatorView.h; sourceTree = "<group>"; };
 		7801C07DF5F51BA81BC8943F680BD589 /* Pods-AXRefreshControl-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AXRefreshControl-resources.sh"; sourceTree = "<group>"; };
 		7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		89FEC734E3B107587AEE9511D83CE27C /* AXIndicatorView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AXIndicatorView.modulemap; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		990DD610E820992F0A03CB02FB93EAAC /* AXIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AXIndicatorView.framework; path = AXIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A3DE16FA1BDFE547B5CB20D5E9CF698 /* AXActivityIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXActivityIndicatorView.h; path = AXIndicatorView/Classes/AXActivityIndicatorView.h; sourceTree = "<group>"; };
-		A01EE949D277815C73A7C2423D924D76 /* AXActivityIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXActivityIndicatorView.m; path = AXIndicatorView/Classes/AXActivityIndicatorView.m; sourceTree = "<group>"; };
+		9E819419FBB9F4AE52494C9FF41C013A /* AXIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXIndicatorView.h; path = AXIndicatorView/Classes/AXIndicatorView.h; sourceTree = "<group>"; };
 		A1ECE7204BA263A1D8EBFB15883C039F /* Pods-AXRefreshControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AXRefreshControl.release.xcconfig"; sourceTree = "<group>"; };
-		A770859F9F061EE3A477A38F5520AB78 /* AXIndicatorView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AXIndicatorView-umbrella.h"; sourceTree = "<group>"; };
-		A9F87794E19C91B31DE57B907FF88368 /* AXIndicatorView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AXIndicatorView-prefix.pch"; sourceTree = "<group>"; };
-		D0E64A223A3F4AE0815D7A4700FDCDD4 /* AXIndicatorView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AXIndicatorView.modulemap; sourceTree = "<group>"; };
 		D5AE24050E5C5BDE7824CACE1E0BA7F0 /* Pods-AXRefreshControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AXRefreshControl.debug.xcconfig"; sourceTree = "<group>"; };
-		D8F427E52424CF5A0C2DCFD3CF827EAD /* AXIndicatorView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AXIndicatorView.xcconfig; sourceTree = "<group>"; };
 		E15F2E2D02F0E83B7D300EE1B342DE32 /* Pods_AXRefreshControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AXRefreshControl.framework; path = "Pods-AXRefreshControl.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E677DD68DE4A4922230A50620A8C82C8 /* AXIndicatorView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AXIndicatorView-umbrella.h"; sourceTree = "<group>"; };
+		E97C3019CFE82E924E89BFCAECBEA981 /* AXActivityIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AXActivityIndicatorView.m; path = AXIndicatorView/Classes/AXActivityIndicatorView.m; sourceTree = "<group>"; };
+		F1897B59F7BBC2FCD3BD3A85568BE805 /* AXIndicatorView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AXIndicatorView-dummy.m"; sourceTree = "<group>"; };
 		F6C6630C4390707D8E2B7D30B7B57789 /* Pods-AXRefreshControl-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AXRefreshControl-frameworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,12 +75,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4BEACC9D10DB52B2C2F2A53E4DCAD7CA /* Frameworks */ = {
+		D1B038C59972C60802538E907E2A17DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C54171481437780033840C9EAEC129A4 /* Foundation.framework in Frameworks */,
-				74F5F7707AF667FB1CB8466A253C6290 /* UIKit.framework in Frameworks */,
+				3C1C4A04779E2F1A16AD71582017DF9C /* Foundation.framework in Frameworks */,
+				16E6D29B1FFA40760ACBFF02604BA458 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,20 +94,6 @@
 				E15F2E2D02F0E83B7D300EE1B342DE32 /* Pods_AXRefreshControl.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1748F9724EB1BED97ABE829AC0B500AD /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				D0E64A223A3F4AE0815D7A4700FDCDD4 /* AXIndicatorView.modulemap */,
-				D8F427E52424CF5A0C2DCFD3CF827EAD /* AXIndicatorView.xcconfig */,
-				3BD0EFB46C78CA722A63097544EBE55D /* AXIndicatorView-dummy.m */,
-				A9F87794E19C91B31DE57B907FF88368 /* AXIndicatorView-prefix.pch */,
-				A770859F9F061EE3A477A38F5520AB78 /* AXIndicatorView-umbrella.h */,
-				1CDC88D12EBF85D89E3D290A6D4CA06C /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/AXIndicatorView";
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
@@ -143,32 +135,57 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				A8D1B7263C31A765B4DFE4892B8412B2 /* Pods */,
+				BC80E1963FDC2CE79D76EE1A5828A2B7 /* Pods */,
 				05596D90E2A363A8752F366A56D1CF77 /* Products */,
 				759280089F868790F33E5DFFB54F17C8 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		A8D1B7263C31A765B4DFE4892B8412B2 /* Pods */ = {
+		986714CE0E5FB45223A844FBB0E65957 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B1E2FE20B58AF1C3B52D5A350EDCBD2D /* AXIndicatorView */,
+				89FEC734E3B107587AEE9511D83CE27C /* AXIndicatorView.modulemap */,
+				60811EB7DA1FBF3B511161BEA58F2E6D /* AXIndicatorView.xcconfig */,
+				F1897B59F7BBC2FCD3BD3A85568BE805 /* AXIndicatorView-dummy.m */,
+				68554CC9E443702F350D7B8EDA4E93EA /* AXIndicatorView-prefix.pch */,
+				E677DD68DE4A4922230A50620A8C82C8 /* AXIndicatorView-umbrella.h */,
+				438CBA9261A25AC130C37ABB6A72CABA /* Info.plist */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/AXIndicatorView";
 			sourceTree = "<group>";
 		};
-		B1E2FE20B58AF1C3B52D5A350EDCBD2D /* AXIndicatorView */ = {
+		B2AEC1DFF56B278E63CEBF8ED22BA002 /* AXIndicatorView */ = {
 			isa = PBXGroup;
 			children = (
-				9A3DE16FA1BDFE547B5CB20D5E9CF698 /* AXActivityIndicatorView.h */,
-				A01EE949D277815C73A7C2423D924D76 /* AXActivityIndicatorView.m */,
-				37871A0A9D739F5037EA196AC5194987 /* AXBreachedAnnulusIndicatorView.h */,
-				7297F96EB880E3971AE952460FEC2328 /* AXBreachedAnnulusIndicatorView.m */,
-				2AA8899C67A3F604B96445672A85F761 /* AXIndicatorView.h */,
-				1748F9724EB1BED97ABE829AC0B500AD /* Support Files */,
+				7590D3EC137B6883665E180771094BBB /* AXActivityIndicatorView.h */,
+				E97C3019CFE82E924E89BFCAECBEA981 /* AXActivityIndicatorView.m */,
+				0B40A6B05C0F138749259E3859615C8E /* AXBreachedAnnulusIndicatorView.h */,
+				27A2A1B0674223E35AF8ECA4D9844AA3 /* AXBreachedAnnulusIndicatorView.m */,
+				9E819419FBB9F4AE52494C9FF41C013A /* AXIndicatorView.h */,
+				4A955C5D3E6B1381E16C84928AAF7134 /* AXSpinningWaitCursor.h */,
+				362907C0A5621B8871791DABE15B0B20 /* AXSpinningWaitCursor.m */,
+				B959DFADCCF2CB5DD4FBA85E7E2E4B99 /* Resources */,
+				986714CE0E5FB45223A844FBB0E65957 /* Support Files */,
 			);
 			name = AXIndicatorView;
 			path = AXIndicatorView;
+			sourceTree = "<group>";
+		};
+		B959DFADCCF2CB5DD4FBA85E7E2E4B99 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1B43FF0C1D75CF12A3914BBC193A7A38 /* AXIndicatorView.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BC80E1963FDC2CE79D76EE1A5828A2B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2AEC1DFF56B278E63CEBF8ED22BA002 /* AXIndicatorView */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		E6EE98446B568159EE277B68FD442AF0 /* iOS */ = {
@@ -183,14 +200,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2C654C3E47FB1A1F67938371317E5531 /* Headers */ = {
+		A73257376EC8CAF5F028E9FE65AD6B6E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC6594199442110F8DE047BE4F2F1A97 /* AXActivityIndicatorView.h in Headers */,
-				74E332E8617CE155B1C49AB3E69C2852 /* AXBreachedAnnulusIndicatorView.h in Headers */,
-				B3A88C7EA16CA02ABC00DF0AA2693FB4 /* AXIndicatorView-umbrella.h in Headers */,
-				D8ED6D504C9047B9C7F6F4B4EC7972AC /* AXIndicatorView.h in Headers */,
+				4C207F258FEA7023D730020E268317D3 /* AXActivityIndicatorView.h in Headers */,
+				168A20E924481C3CF28ECAB3E5D92474 /* AXBreachedAnnulusIndicatorView.h in Headers */,
+				DA43390B4E8E0C637A640EA3C95F6622 /* AXIndicatorView-umbrella.h in Headers */,
+				3EFAFEAA4F0D9F731DC79C5FEF359F02 /* AXIndicatorView.h in Headers */,
+				798554DC826CDA8FFF2668C7D3DB5DD6 /* AXSpinningWaitCursor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,13 +223,14 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6434C95075ED62D696B56D09F670C07C /* AXIndicatorView */ = {
+		060186B6B426DB3FDC91A01203682CB1 /* AXIndicatorView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 138CC2DD73590F5D6704F506C9CC40EA /* Build configuration list for PBXNativeTarget "AXIndicatorView" */;
+			buildConfigurationList = D2C9720967798055451A47F02542D023 /* Build configuration list for PBXNativeTarget "AXIndicatorView" */;
 			buildPhases = (
-				25721862877B8D8FCAAC9984651F804A /* Sources */,
-				4BEACC9D10DB52B2C2F2A53E4DCAD7CA /* Frameworks */,
-				2C654C3E47FB1A1F67938371317E5531 /* Headers */,
+				68C786F78FECB434D8B46390A74DE5ED /* Sources */,
+				D1B038C59972C60802538E907E2A17DD /* Frameworks */,
+				A73257376EC8CAF5F028E9FE65AD6B6E /* Headers */,
+				0C806C0FB575E691B7F2ED7E48682279 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -261,20 +280,32 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6434C95075ED62D696B56D09F670C07C /* AXIndicatorView */,
+				060186B6B426DB3FDC91A01203682CB1 /* AXIndicatorView */,
 				A17F5C45C90CE5B648EC99917807C5E1 /* Pods-AXRefreshControl */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		0C806C0FB575E691B7F2ED7E48682279 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AF26DC8497DDE93AD0DD1E5B30EC848 /* AXIndicatorView.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		25721862877B8D8FCAAC9984651F804A /* Sources */ = {
+		68C786F78FECB434D8B46390A74DE5ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0BE8127EF9996946C9E75B9B7E56092 /* AXActivityIndicatorView.m in Sources */,
-				1E29CF598662FCC28AC15004E4AE7417 /* AXBreachedAnnulusIndicatorView.m in Sources */,
-				1BA27AF1ECFAEF956763712E7592EDE7 /* AXIndicatorView-dummy.m in Sources */,
+				AD6147E479AFBE14EB72A29C17ED1E70 /* AXActivityIndicatorView.m in Sources */,
+				27B332B23FD7D4EC4636AE39C26F6C04 /* AXBreachedAnnulusIndicatorView.m in Sources */,
+				D28BABE5C4AB44EB6CEBD17416AF9A72 /* AXIndicatorView-dummy.m in Sources */,
+				6D3B59B7F5DD9FB270A0F54F8EEC0957 /* AXSpinningWaitCursor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +323,7 @@
 		5771FDB839E26FFCC5F2B771175F05A0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AXIndicatorView;
-			target = 6434C95075ED62D696B56D09F670C07C /* AXIndicatorView */;
+			target = 060186B6B426DB3FDC91A01203682CB1 /* AXIndicatorView */;
 			targetProxy = 3A9E204847E1BA2BCCFFD47624E17B94 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -325,37 +356,6 @@
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_AXRefreshControl;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		29C0D86C2D7EFB7F90AB51781F90B1F3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8F427E52424CF5A0C2DCFD3CF827EAD /* AXIndicatorView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AXIndicatorView/AXIndicatorView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AXIndicatorView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/AXIndicatorView/AXIndicatorView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = AXIndicatorView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -401,37 +401,6 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		9D8B53A7E6463521E73EC10BF1ED9A8C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8F427E52424CF5A0C2DCFD3CF827EAD /* AXIndicatorView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AXIndicatorView/AXIndicatorView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AXIndicatorView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/AXIndicatorView/AXIndicatorView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = AXIndicatorView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -514,23 +483,85 @@
 			};
 			name = Debug;
 		};
+		E0C45A439129710A971A062A9EB6486F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60811EB7DA1FBF3B511161BEA58F2E6D /* AXIndicatorView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AXIndicatorView/AXIndicatorView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AXIndicatorView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AXIndicatorView/AXIndicatorView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = AXIndicatorView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F6E362DB805377B7C8BDA5BB48E65BAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60811EB7DA1FBF3B511161BEA58F2E6D /* AXIndicatorView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AXIndicatorView/AXIndicatorView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AXIndicatorView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AXIndicatorView/AXIndicatorView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = AXIndicatorView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		138CC2DD73590F5D6704F506C9CC40EA /* Build configuration list for PBXNativeTarget "AXIndicatorView" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				29C0D86C2D7EFB7F90AB51781F90B1F3 /* Debug */,
-				9D8B53A7E6463521E73EC10BF1ED9A8C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CF7953F66E785E8876EB4D370D777D50 /* Debug */,
 				79B0C2E66EFA9917ED6EDDB8FC6A7684 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2C9720967798055451A47F02542D023 /* Build configuration list for PBXNativeTarget "AXIndicatorView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6E362DB805377B7C8BDA5BB48E65BAF /* Debug */,
+				E0C45A439129710A971A062A9EB6486F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

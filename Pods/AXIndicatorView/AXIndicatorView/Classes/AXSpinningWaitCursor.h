@@ -1,9 +1,9 @@
 //
-//  AXActivityIndicatorView.h
+//  AXSpinningWaitCursor.h
 //  AXIndicatorView
 //
-//  Created by devedbox on 2016/10/7.
-//  Copyright © 2016年 devedbox. All rights reserved.
+//  Created by devedbox on 2017/5/14.
+//  Copyright © 2017年 devedbox. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,17 +26,9 @@
 #import <UIKit/UIKit.h>
 
 IB_DESIGNABLE
-@interface AXActivityIndicatorView : UIView
-/// Line width.
-@property(assign, nonatomic) IBInspectable CGFloat lineWidth;
-/// Drawing percent of the components.
-@property(assign, nonatomic) IBInspectable int64_t drawingComponents;
+@interface AXSpinningWaitCursor : UIView
 /// Animating.
 @property(assign, nonatomic, getter=isAnimating) IBInspectable BOOL animating;
-/// Should gradient color index.
-@property(assign, nonatomic) IBInspectable BOOL shouldGradientColorIndex;
-/// Begin angle offset.
-@property(assign, nonatomic) IBInspectable CGFloat angleOffset;
-
-- (void)initializer;
+/// Duration. Default 1.0.
+@property(assign, nonatomic) IBInspectable NSTimeInterval duration;
 @end

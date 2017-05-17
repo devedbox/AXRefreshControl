@@ -1,9 +1,9 @@
 //
-//  AXBreachedAnnulusIndicatorView.m
+//  AXSpinningWaitCursor.m
 //  AXIndicatorView
 //
-//  Created by devedbox on 2016/10/7.
-//  Copyright © 2016年 devedbox. All rights reserved.
+//  Created by devedbox on 2017/5/14.
+//  Copyright © 2017年 devedbox. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,10 +23,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-#import "AXBreachedAnnulusIndicatorView.h"
+#import "AXSpinningWaitCursor.h"
 
-@implementation AXBreachedAnnulusIndicatorView
-@synthesize animating = _animating;
+@interface AXSpinningWaitCursor ()
+/// Image view.
+@property(strong, nonatomic) UIImageView *imageView;
+@end
+
+@implementation AXSpinningWaitCursor
 #pragma mark - Initializer
 - (instancetype)init {
     if (self = [super init]) {
@@ -56,9 +60,8 @@
 }
 
 - (void)initializer {
-    _lineWidth = 2.0;
-    _breach = M_PI_4;
-    _duration = 1.6;
+    _duration = 1.0;
+    [self addSubview:self.imageView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_didBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
@@ -66,63 +69,57 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#pragma mark - Override
-
-- (void)drawRect:(CGRect)rect {
-    [super drawRect:rect];
+#pragma mark - Override.
+- (void)layoutSubviews {
+    [super layoutSubviews];
     
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    UIColor *tintColor = self.tintColor?:[UIColor blackColor];
-    
-    CGContextSetStrokeColorWithColor(context, tintColor.CGColor);
-    CGContextSetLineWidth(context, _lineWidth);
-    CGContextSetLineCap(context, kCGLineCapRound);
-    
-    CGRect box = CGRectInset(self.bounds, _lineWidth, _lineWidth);
-    CGFloat deatla = MIN(box.size.width, box.size.height);
-    box.origin.x += fabs(box.size.width-deatla)*.5;
-    box.origin.y += fabs(box.size.height-deatla)*.5;
-    box.size.width = deatla;
-    box.size.height = deatla;
-    
-    // Drawing.
-    CGContextAddArc(context, CGRectGetMidX(box), CGRectGetMidY(box), deatla/2, 0, M_PI*2-_breach, 0);
-    CGContextStrokePath(context);
+    [_imageView setFrame:self.bounds];
 }
 
-- (void)setTintColor:(UIColor *)tintColor {
-    [super setTintColor:tintColor];
-    
-    [self setNeedsDisplay];
+#pragma mark - Getters.
+- (UIImageView *)imageView {
+    if (_imageView) return _imageView;
+    UIImage *image;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_8_0
+    image = [UIImage imageNamed:@"AXIndicatorView.bundle/SpinningWaitCursor"];
+#else
+    image = [UIImage imageNamed:@"AXIndicatorView.bundle/SpinningWaitCursor" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+#endif
+    _imageView = [[UIImageView alloc] initWithImage:image];
+    _imageView.contentMode = UIViewContentModeCenter;
+    return _imageView;
 }
 
-#pragma mark - Setters
-- (void)setLineWidth:(CGFloat)lineWidth {
-    _lineWidth = lineWidth;
-    [self setNeedsDisplay];
-}
-
-- (void)setBreach:(CGFloat)breach {
-    _breach = breach;
-    [self setNeedsDisplay];
-}
-
+#pragma mark - Setters.
 - (void)setAnimating:(BOOL)animating {
     _animating = animating;
     
-    if (animating) {
-        CABasicAnimation *rotate = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-        rotate.toValue = @(M_PI*2);
-        rotate.duration = _duration;
-        rotate.repeatCount = CGFLOAT_MAX;
-        rotate.removedOnCompletion = NO;
-        [self.layer addAnimation:rotate forKey:@"rotate"];
+    if (_animating) {
+        [self _addAnimation];
     } else {
-        [self.layer removeAnimationForKey:@"rotate"];
+        [self.imageView.layer removeAnimationForKey:@"rotate"];
+    }
+}
+
+- (void)setDuration:(NSTimeInterval)duration {
+    _duration = duration;
+    
+    if (_animating) {
+        [self.imageView.layer removeAnimationForKey:@"rotate"];
+        [self _addAnimation];
     }
 }
 
 - (void)_didBecomeActive:(id)arg {
     if (_animating) [self setAnimating:_animating];
+}
+
+- (void)_addAnimation {
+    CABasicAnimation *rotate = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotate.toValue = @(M_PI*2);
+    rotate.duration = _duration;
+    rotate.repeatCount = CGFLOAT_MAX;
+    rotate.removedOnCompletion = NO;
+    [self.imageView.layer addAnimation:rotate forKey:@"rotate"];
 }
 @end
